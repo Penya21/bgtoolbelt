@@ -1,0 +1,56 @@
+com/wallia/bgtoolbelt/databinding/FragmentHomeAltBindingImpl.java
+ com.wallia.bgtoolbelt.databinding.FragmentHomeAltBindingImpl
+com/wallia/bgtoolbelt/databinding/FragmentHomeBinding.java
+ com.wallia.bgtoolbelt.databinding.FragmentHomeBinding
+com/wallia/bgtoolbelt/BR.java
+ com.wallia.bgtoolbelt.BR
+androidx/databinding/DataBinderMapperImpl.java
+ androidx.databinding.DataBinderMapperImpl
+com/wallia/bgtoolbelt/databinding/FragmentHomeAltBinding.java
+ com.wallia.bgtoolbelt.databinding.FragmentHomeAltBinding
+com/wallia/bgtoolbelt/data/data/BoardGameYear$$TypeAdapter.java
+ com.wallia.bgtoolbelt.data.data.BoardGameYear$$TypeAdapter
+ com.wallia.bgtoolbelt.data.data.BoardGameYear$$TypeAdapter$1
+ com.wallia.bgtoolbelt.data.data.BoardGameYear$$TypeAdapter$ValueHolder
+com/wallia/bgtoolbelt/BuildConfig.java
+ com.wallia.bgtoolbelt.BuildConfig
+com/wallia/bgtoolbelt/data/data/Thing$$TypeAdapter.java
+ com.wallia.bgtoolbelt.data.data.Thing$$TypeAdapter
+ com.wallia.bgtoolbelt.data.data.Thing$$TypeAdapter$1
+ com.wallia.bgtoolbelt.data.data.Thing$$TypeAdapter$2
+ com.wallia.bgtoolbelt.data.data.Thing$$TypeAdapter$3
+ com.wallia.bgtoolbelt.data.data.Thing$$TypeAdapter$4
+ com.wallia.bgtoolbelt.data.data.Thing$$TypeAdapter$5
+ com.wallia.bgtoolbelt.data.data.Thing$$TypeAdapter$6
+ com.wallia.bgtoolbelt.data.data.Thing$$TypeAdapter$7
+ com.wallia.bgtoolbelt.data.data.Thing$$TypeAdapter$8
+ com.wallia.bgtoolbelt.data.data.Thing$$TypeAdapter$ValueHolder
+androidx/databinding/library/baseAdapters/BR.java
+ androidx.databinding.library.baseAdapters.BR
+com/wallia/bgtoolbelt/data/data/Root$$TypeAdapter.java
+ com.wallia.bgtoolbelt.data.data.Root$$TypeAdapter
+ com.wallia.bgtoolbelt.data.data.Root$$TypeAdapter$1
+ com.wallia.bgtoolbelt.data.data.Root$$TypeAdapter$2
+ com.wallia.bgtoolbelt.data.data.Root$$TypeAdapter$ValueHolder
+com/wallia/bgtoolbelt/DataBindingTriggerClass.java
+ com.wallia.bgtoolbelt.DataBindingTriggerClass
+com/wallia/bgtoolbelt/DataBinderMapperImpl.java
+ com.wallia.bgtoolbelt.DataBinderMapperImpl
+ com.wallia.bgtoolbelt.DataBinderMapperImpl$InnerBrLookup
+ com.wallia.bgtoolbelt.DataBinderMapperImpl$InnerLayoutIdLookup
+com/wallia/bgtoolbelt/data/data/BoardGameProperty$$TypeAdapter.java
+ com.wallia.bgtoolbelt.data.data.BoardGameProperty$$TypeAdapter
+ com.wallia.bgtoolbelt.data.data.BoardGameProperty$$TypeAdapter$1
+ com.wallia.bgtoolbelt.data.data.BoardGameProperty$$TypeAdapter$2
+ com.wallia.bgtoolbelt.data.data.BoardGameProperty$$TypeAdapter$3
+ com.wallia.bgtoolbelt.data.data.BoardGameProperty$$TypeAdapter$ValueHolder
+com/wallia/bgtoolbelt/databinding/FragmentHomeBindingImpl.java
+ com.wallia.bgtoolbelt.databinding.FragmentHomeBindingImpl
+com/wallia/bgtoolbelt/data/data/BoardGameName$$TypeAdapter.java
+ com.wallia.bgtoolbelt.data.data.BoardGameName$$TypeAdapter
+ com.wallia.bgtoolbelt.data.data.BoardGameName$$TypeAdapter$1
+ com.wallia.bgtoolbelt.data.data.BoardGameName$$TypeAdapter$2
+ com.wallia.bgtoolbelt.data.data.BoardGameName$$TypeAdapter$3
+ com.wallia.bgtoolbelt.data.data.BoardGameName$$TypeAdapter$ValueHolder
+androidx/databinding/DataBindingComponent.java
+ androidx.databinding.DataBindingComponent
