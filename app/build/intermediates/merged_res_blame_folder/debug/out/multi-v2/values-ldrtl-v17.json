@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/DesarrolloLightSoft/Desktop/BGToolBelt/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-ldrtl-v17/values-ldrtl-v17.xml",
+            "outputFile": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-ldrtl-v17/values-ldrtl-v17.xml",
             "map": [
                 {
-                    "source": "/Users/DesarrolloLightSoft/.gradle/caches/transforms-2/files-2.1/2de5a6b17c59cfa51c3f364f5a8e2176/material-1.4.0/res/values-ldrtl-v17/values-ldrtl-v17.xml",
+                    "source": "/Users/DesarrolloLightSoft/.gradle/caches/transforms-2/files-2.1/44d7220ee44d41c27f13beeacb100430/material-1.4.0/res/values-ldrtl-v17/values-ldrtl-v17.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",

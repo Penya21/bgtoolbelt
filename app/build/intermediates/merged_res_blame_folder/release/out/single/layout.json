@@ -1,0 +1,50 @@
+[
+    {
+        "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/incremental/mergeReleaseResources/stripped.dir/layout/fragment_home.xml",
+        "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/layout/fragment_home.xml"
+    },
+    {
+        "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/incremental/mergeReleaseResources/stripped.dir/layout/item_hot_list.xml",
+        "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/layout/item_hot_list.xml"
+    },
+    {
+        "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/incremental/mergeReleaseResources/stripped.dir/layout/profile_fragment.xml",
+        "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/layout/profile_fragment.xml"
+    },
+    {
+        "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/incremental/mergeReleaseResources/stripped.dir/layout/activity_login.xml",
+        "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/layout/activity_login.xml"
+    },
+    {
+        "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/incremental/mergeReleaseResources/stripped.dir/layout/fragment_hot.xml",
+        "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/layout/fragment_hot.xml"
+    },
+    {
+        "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/incremental/mergeReleaseResources/stripped.dir/layout/fragment_home_alt.xml",
+        "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/layout/fragment_home_alt.xml"
+    },
+    {
+        "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/incremental/mergeReleaseResources/stripped.dir/layout/fragment_search_list.xml",
+        "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/layout/fragment_search_list.xml"
+    },
+    {
+        "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/incremental/mergeReleaseResources/stripped.dir/layout/fragment_notifications.xml",
+        "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/layout/fragment_notifications.xml"
+    },
+    {
+        "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/incremental/mergeReleaseResources/stripped.dir/layout/item_hot_grid.xml",
+        "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/layout/item_hot_grid.xml"
+    },
+    {
+        "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/incremental/mergeReleaseResources/stripped.dir/layout/fragment_dashboard.xml",
+        "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/layout/fragment_dashboard.xml"
+    },
+    {
+        "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/incremental/mergeReleaseResources/stripped.dir/layout/fragment_search.xml",
+        "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/layout/fragment_search.xml"
+    },
+    {
+        "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/incremental/mergeReleaseResources/stripped.dir/layout/activity_main.xml",
+        "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/layout/activity_main.xml"
+    }
+]

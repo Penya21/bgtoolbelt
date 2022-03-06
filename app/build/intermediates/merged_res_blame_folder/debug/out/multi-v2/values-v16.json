@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/DesarrolloLightSoft/Desktop/BGToolBelt/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v16/values-v16.xml",
+            "outputFile": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v16/values-v16.xml",
             "map": [
                 {
-                    "source": "/Users/DesarrolloLightSoft/.gradle/caches/transforms-2/files-2.1/eecaea443a4792eccbbfed4cd6f67d77/appcompat-1.3.1/res/values-v16/values-v16.xml",
+                    "source": "/Users/DesarrolloLightSoft/.gradle/caches/transforms-2/files-2.1/15de2495ca8e574b13b75c39f86e04fa/appcompat-1.3.1/res/values-v16/values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -23,7 +23,7 @@
                     }
                 },
                 {
-                    "source": "/Users/DesarrolloLightSoft/.gradle/caches/transforms-2/files-2.1/8303caa4e5d6b7b04220c6cd65e7567c/core-1.5.0/res/values-v16/values-v16.xml",
+                    "source": "/Users/DesarrolloLightSoft/.gradle/caches/transforms-2/files-2.1/ad2311685fb0e702dd891e5c44e1930e/core-1.6.0/res/values-v16/values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

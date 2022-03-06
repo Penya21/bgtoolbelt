@@ -1,56 +1,59 @@
-com/wallia/bgtoolbelt/databinding/FragmentHomeAltBindingImpl.java
- com.wallia.bgtoolbelt.databinding.FragmentHomeAltBindingImpl
-com/wallia/bgtoolbelt/databinding/FragmentHomeBinding.java
- com.wallia.bgtoolbelt.databinding.FragmentHomeBinding
-com/wallia/bgtoolbelt/BR.java
- com.wallia.bgtoolbelt.BR
+com/kitam/bgapp/database/TaskDao_Impl.java
+ com.kitam.bgapp.database.TaskDao_Impl
+ com.kitam.bgapp.database.TaskDao_Impl$1
+ com.kitam.bgapp.database.TaskDao_Impl$2
+ com.kitam.bgapp.database.TaskDao_Impl$3
+ com.kitam.bgapp.database.TaskDao_Impl$4
+ com.kitam.bgapp.database.TaskDao_Impl$5
+ com.kitam.bgapp.database.TaskDao_Impl$6
+com/kitam/bgapp/databinding/ActivityMainBinding.java
+ com.kitam.bgapp.databinding.ActivityMainBinding
 androidx/databinding/DataBinderMapperImpl.java
  androidx.databinding.DataBinderMapperImpl
-com/wallia/bgtoolbelt/databinding/FragmentHomeAltBinding.java
- com.wallia.bgtoolbelt.databinding.FragmentHomeAltBinding
-com/wallia/bgtoolbelt/data/data/BoardGameYear$$TypeAdapter.java
- com.wallia.bgtoolbelt.data.data.BoardGameYear$$TypeAdapter
- com.wallia.bgtoolbelt.data.data.BoardGameYear$$TypeAdapter$1
- com.wallia.bgtoolbelt.data.data.BoardGameYear$$TypeAdapter$ValueHolder
-com/wallia/bgtoolbelt/BuildConfig.java
- com.wallia.bgtoolbelt.BuildConfig
-com/wallia/bgtoolbelt/data/data/Thing$$TypeAdapter.java
- com.wallia.bgtoolbelt.data.data.Thing$$TypeAdapter
- com.wallia.bgtoolbelt.data.data.Thing$$TypeAdapter$1
- com.wallia.bgtoolbelt.data.data.Thing$$TypeAdapter$2
- com.wallia.bgtoolbelt.data.data.Thing$$TypeAdapter$3
- com.wallia.bgtoolbelt.data.data.Thing$$TypeAdapter$4
- com.wallia.bgtoolbelt.data.data.Thing$$TypeAdapter$5
- com.wallia.bgtoolbelt.data.data.Thing$$TypeAdapter$6
- com.wallia.bgtoolbelt.data.data.Thing$$TypeAdapter$7
- com.wallia.bgtoolbelt.data.data.Thing$$TypeAdapter$8
- com.wallia.bgtoolbelt.data.data.Thing$$TypeAdapter$ValueHolder
+com/kitam/bgapp/databinding/FragmentHotBindingImpl.java
+ com.kitam.bgapp.databinding.FragmentHotBindingImpl
+com/kitam/bgapp/databinding/FragmentSearchListBinding.java
+ com.kitam.bgapp.databinding.FragmentSearchListBinding
 androidx/databinding/library/baseAdapters/BR.java
  androidx.databinding.library.baseAdapters.BR
-com/wallia/bgtoolbelt/data/data/Root$$TypeAdapter.java
- com.wallia.bgtoolbelt.data.data.Root$$TypeAdapter
- com.wallia.bgtoolbelt.data.data.Root$$TypeAdapter$1
- com.wallia.bgtoolbelt.data.data.Root$$TypeAdapter$2
- com.wallia.bgtoolbelt.data.data.Root$$TypeAdapter$ValueHolder
-com/wallia/bgtoolbelt/DataBindingTriggerClass.java
- com.wallia.bgtoolbelt.DataBindingTriggerClass
-com/wallia/bgtoolbelt/DataBinderMapperImpl.java
- com.wallia.bgtoolbelt.DataBinderMapperImpl
- com.wallia.bgtoolbelt.DataBinderMapperImpl$InnerBrLookup
- com.wallia.bgtoolbelt.DataBinderMapperImpl$InnerLayoutIdLookup
-com/wallia/bgtoolbelt/data/data/BoardGameProperty$$TypeAdapter.java
- com.wallia.bgtoolbelt.data.data.BoardGameProperty$$TypeAdapter
- com.wallia.bgtoolbelt.data.data.BoardGameProperty$$TypeAdapter$1
- com.wallia.bgtoolbelt.data.data.BoardGameProperty$$TypeAdapter$2
- com.wallia.bgtoolbelt.data.data.BoardGameProperty$$TypeAdapter$3
- com.wallia.bgtoolbelt.data.data.BoardGameProperty$$TypeAdapter$ValueHolder
-com/wallia/bgtoolbelt/databinding/FragmentHomeBindingImpl.java
- com.wallia.bgtoolbelt.databinding.FragmentHomeBindingImpl
-com/wallia/bgtoolbelt/data/data/BoardGameName$$TypeAdapter.java
- com.wallia.bgtoolbelt.data.data.BoardGameName$$TypeAdapter
- com.wallia.bgtoolbelt.data.data.BoardGameName$$TypeAdapter$1
- com.wallia.bgtoolbelt.data.data.BoardGameName$$TypeAdapter$2
- com.wallia.bgtoolbelt.data.data.BoardGameName$$TypeAdapter$3
- com.wallia.bgtoolbelt.data.data.BoardGameName$$TypeAdapter$ValueHolder
+com/kitam/bgapp/databinding/FragmentHomeAltBinding.java
+ com.kitam.bgapp.databinding.FragmentHomeAltBinding
+com/kitam/bgapp/databinding/ItemHotListBinding.java
+ com.kitam.bgapp.databinding.ItemHotListBinding
+com/kitam/bgapp/BuildConfig.java
+ com.kitam.bgapp.BuildConfig
+com/kitam/bgapp/DataBindingTriggerClass.java
+ com.kitam.bgapp.DataBindingTriggerClass
+com/kitam/bgapp/databinding/FragmentHomeAltBindingImpl.java
+ com.kitam.bgapp.databinding.FragmentHomeAltBindingImpl
+com/kitam/bgapp/DataBinderMapperImpl.java
+ com.kitam.bgapp.DataBinderMapperImpl
+ com.kitam.bgapp.DataBinderMapperImpl$InnerBrLookup
+ com.kitam.bgapp.DataBinderMapperImpl$InnerLayoutIdLookup
+com/kitam/bgapp/databinding/FragmentHomeBindingImpl.java
+ com.kitam.bgapp.databinding.FragmentHomeBindingImpl
+com/kitam/bgapp/databinding/FragmentNotificationsBinding.java
+ com.kitam.bgapp.databinding.FragmentNotificationsBinding
+com/kitam/bgapp/databinding/FragmentDashboardBinding.java
+ com.kitam.bgapp.databinding.FragmentDashboardBinding
+com/kitam/bgapp/database/TaskDatabase_Impl.java
+ com.kitam.bgapp.database.TaskDatabase_Impl
+ com.kitam.bgapp.database.TaskDatabase_Impl$1
+com/kitam/bgapp/databinding/FragmentSearchBinding.java
+ com.kitam.bgapp.databinding.FragmentSearchBinding
+com/kitam/bgapp/databinding/FragmentHotBinding.java
+ com.kitam.bgapp.databinding.FragmentHotBinding
+com/kitam/bgapp/databinding/FragmentHomeBinding.java
+ com.kitam.bgapp.databinding.FragmentHomeBinding
+com/kitam/bgapp/databinding/ProfileFragmentBinding.java
+ com.kitam.bgapp.databinding.ProfileFragmentBinding
+com/kitam/bgapp/databinding/ItemHotGridBinding.java
+ com.kitam.bgapp.databinding.ItemHotGridBinding
+com/kitam/bgapp/BR.java
+ com.kitam.bgapp.BR
+com/kitam/bgapp/databinding/ActivityLoginBinding.java
+ com.kitam.bgapp.databinding.ActivityLoginBinding
 androidx/databinding/DataBindingComponent.java
  androidx.databinding.DataBindingComponent
+com/kitam/bgapp/SplashActivity.java
+ com.kitam.bgapp.SplashActivity

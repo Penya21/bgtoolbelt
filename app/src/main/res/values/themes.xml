@@ -13,4 +13,25 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="SplashTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:windowBackground">@drawable/splash_background</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/purple_700</item>
+        <item name="colorAccent">@color/colorPrimaryDark</item>
+        <item name="android:statusBarColor">@color/colorPrimaryDark</item>
+    </style>
+
+    <style name="mytoast">
+        <item name="stTextBold">true</item>
+        <item name="stTextColor">@color/white</item>
+        <item name="stTextSize">14sp</item>
+        <item name="stColorBackground">@color/colorAccent</item>
+        <item name="stSolidBackground">true</item>
+        <item name="stStrokeWidth">3dp</item>
+        <item name="stStrokeColor">@color/colorAccent</item>
+        <item name="stLength">LONG</item>
+        <item name="stGravity">center</item>
+        <item name="stRadius">5dp</item>
+    </style>
 </resources>

@@ -1,6 +1,20 @@
 <resources>
-    <string name="app_name">BGToolBelt</string>
+    <string name="app_name">BGApp</string>
     <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_hot">Tiendas</string>
+    <string name="title_stores">Tiendas</string>
+    <string name="title_dashboard">Juegos</string>
+    <string name="title_search">Buscar</string>
+    <string name="title_notifications">Favoritos</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Inicia sesión o crea una cuenta</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="title_profile">Perfil</string>
+    <string name="facebook_application_id">1646710852338933</string> <string name="fb_login_protocol_scheme">fb1646710852338933</string>
 </resources>

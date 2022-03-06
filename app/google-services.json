@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "757327317875",
+    "project_id": "boardgame-app-43ef1",
+    "storage_bucket": "boardgame-app-43ef1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:757327317875:android:da35a9dc38b6cd84c7d306",
+        "android_client_info": {
+          "package_name": "com.kitam.bgapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "757327317875-2qp67n4p69es0bkopjfs1e90e27o93i8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kitam.bgapp",
+            "certificate_hash": "6af6750dc02075129d8149ac18a422adb4682cb2"
+          }
+        },
+        {
+          "client_id": "757327317875-ecu940uvank45bdjtjbd76otau1dk80i.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kitam.bgapp",
+            "certificate_hash": "0e2fbc5e3c490d806786f85231f68b9d5a8a964d"
+          }
+        },
+        {
+          "client_id": "757327317875-fbo4j798qamis13ba9u64a6u882b1ctp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB-nphUm4hThpumviogOhafCv1N1DVu1k8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "757327317875-fbo4j798qamis13ba9u64a6u882b1ctp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
