@@ -33,6 +33,7 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment)
         progressBar = findViewById(R.id.loading)
         boardGameViewModel.onCreate()
+        boardGameViewModel.firstSetup.postValue(true)
         boardGameViewModel.isLoading.observe(this, Observer {
             this.progressBar?.isVisible = it
         })
@@ -55,6 +56,12 @@ class MainActivity : AppCompatActivity() {
                         startActivity(intent)
                         finish()
                     }
+            }
+        })
+
+        boardGameViewModel.favGamesList.observe(this, {
+            if(!it.isNullOrEmpty()){
+
             }
         })
 

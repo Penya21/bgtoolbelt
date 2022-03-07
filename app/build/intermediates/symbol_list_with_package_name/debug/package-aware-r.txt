@@ -2743,7 +2743,6 @@ id text_dashboard
 id text_input_end_icon
 id text_input_error_icon
 id text_input_start_icon
-id text_notifications
 id text_view
 id textinput_counter
 id textinput_error
@@ -2948,6 +2947,7 @@ layout fui_welcome_back_email_link_prompt_layout
 layout fui_welcome_back_idp_prompt_layout
 layout fui_welcome_back_password_prompt_layout
 layout image_slider
+layout item_favorite
 layout item_hot_grid
 layout item_hot_list
 layout material_chip_input_combo

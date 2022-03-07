@@ -17,20 +17,24 @@ import com.kitam.bgapp.R
 class HotRecyclerAdapter : RecyclerView.Adapter<HotRecyclerAdapter.ViewHolder>() {
 
     var boardGames: List<BoardGame>  = ArrayList()
+    var favGames: List<BoardGame> = ArrayList()
     lateinit var context: Context
     var layoutId: Int = R.layout.item_hot_grid
     private var callback: Callback? = null
     var showYear = false
 
 
-    fun HotRecyclerAdapter(boardGames: List<BoardGame>, context: Context, listener: Callback){
+    fun HotRecyclerAdapter(boardGames: List<BoardGame>, favGames : List<BoardGame>, context: Context, listener: Callback){
         this.boardGames = boardGames
+        this.favGames = favGames
         this.context = context
         this.setListener(listener)
     }
 
     interface Callback {
         fun onBoardGameClicked(boardGame:BoardGame)
+        fun onFavBoardGameClicked(boardGame:BoardGame, position: Int, isFavorite: Boolean)
+
     }
 
 
@@ -45,7 +49,10 @@ class HotRecyclerAdapter : RecyclerView.Adapter<HotRecyclerAdapter.ViewHolder>()
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = boardGames.get(position)
-        holder.bind(item, context, callback, showYear)
+        var isFavorite = false
+        if(favGames.contains(item))
+            isFavorite = true
+        holder.bind(item, position, context, callback, showYear, isFavorite)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -62,23 +69,34 @@ class HotRecyclerAdapter : RecyclerView.Adapter<HotRecyclerAdapter.ViewHolder>()
         val boardGameName = view.findViewById(R.id.tvTitle) as TextView
         val subtitle = view.findViewById(R.id.tvSubtitle) as TextView
         val year = view.findViewById(R.id.tvYear) as TextView
+        val rank = view.findViewById(R.id.tvRank) as TextView
         val avatar = view.findViewById(R.id.ivImage) as ImageView
         val favButton = view.findViewById(R.id.ivFav) as ImageView
 
 
-        fun bind(boardGame: BoardGame, context: Context, callback: Callback?, showYear:Boolean){
+        fun bind(boardGame: BoardGame, position: Int, context: Context, callback: Callback?, showYear:Boolean, isFavorite: Boolean){
             boardGameName.text = boardGame.name
             subtitle.text = boardGame.description
             year.text = boardGame.yearpublished
+            if(!boardGame.rank.isNullOrEmpty())
+              rank.text = "#" + boardGame.rank
 
             if(showYear){
                 year.visibility = View.VISIBLE
+                rank.visibility = View.GONE
 
             }else{
+                rank.visibility = View.VISIBLE
                 year.visibility = View.GONE
-
             }
 
+            if(isFavorite){
+                favButton.setBackgroundResource(R.drawable.circle_primary_color)
+                favButton.setImageResource(R.drawable.ic_fav_on)
+            }else{
+                favButton.setBackgroundResource(R.drawable.circle_gray_color)
+                favButton.setImageResource(R.drawable.ic_fav_off)
+            }
 
 
             itemView.setOnClickListener(View.OnClickListener {
@@ -96,8 +114,7 @@ class HotRecyclerAdapter : RecyclerView.Adapter<HotRecyclerAdapter.ViewHolder>()
 
             favButton.setOnClickListener(View.OnClickListener {
 
-              //  favButton.setBackgroundResource(R.drawable.circle_primary_color)
-              //  favButton.setImageResource(R.drawable.ic_fav_on)
+                callback?.onFavBoardGameClicked(boardGame, position, isFavorite)
 
             })
             //avatar.load(boardGame.thumbnail?.value.toString())

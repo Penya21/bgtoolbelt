@@ -34,6 +34,7 @@ class HotFragment : Fragment(), HotRecyclerAdapter.Callback {
     val mAdapter : HotRecyclerAdapter = HotRecyclerAdapter()
 
     var isGrid = true
+    var lastFavoritedPosition = 0;
 
 
     override fun onCreateView(
@@ -60,30 +61,7 @@ class HotFragment : Fragment(), HotRecyclerAdapter.Callback {
         }
 
         binding.sbListType.onPositionChangedListener = OnPositionChangedListener {
-            if(binding.sbListType.position == 1){
-                if(!boardGameViewModel.upcomingGamesList.value.isNull()) {
-                    setUpRecyclerView(boardGameViewModel.upcomingGamesList.value!!, true)
-                }else{
-                    boardGameViewModel.updateHotUpcomingList()
-                }
-
-            }else if(binding.sbListType.position == 0){
-                if(!boardGameViewModel.hotGamesList.value.isNull()) {
-
-                    setUpRecyclerView(boardGameViewModel.hotGamesList.value!!, false)
-                }else{
-                    boardGameViewModel.updateHotUpcomingList()
-
-                }
-            }else if(binding.sbListType.position == 2){
-                if(!boardGameViewModel.topGamesList.value.isNull()) {
-
-                    setUpRecyclerView(boardGameViewModel.topGamesList.value!!, false)
-                }else{
-                    boardGameViewModel.updateTopList()
-                }
-
-            }
+            switchList(it)
         }
 
 
@@ -92,6 +70,27 @@ class HotFragment : Fragment(), HotRecyclerAdapter.Callback {
         return binding.root
     }
 
+    fun switchList(position:Int){
+
+        if(position == 1){
+            if(!boardGameViewModel.upcomingGamesList.value.isNull()) {
+                setUpRecyclerView(boardGameViewModel.upcomingGamesList.value!!, true)
+            }
+
+        }else if(position == 0){
+            if(!boardGameViewModel.hotGamesList.value.isNull()) {
+
+                setUpRecyclerView(boardGameViewModel.hotGamesList.value!!, false)
+            }
+        }else if(position == 2){
+            if(!boardGameViewModel.topGamesList.value.isNull()) {
+
+                setUpRecyclerView(boardGameViewModel.topGamesList.value!!, false)
+            }
+
+        }
+
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -106,6 +105,7 @@ class HotFragment : Fragment(), HotRecyclerAdapter.Callback {
 
         boardGameViewModel.upcomingGamesList.observe(viewLifecycleOwner, Observer { list ->
 
+            if(!boardGameViewModel.firstSetup.value!!)
             if(binding.sbListType.position == 1){
                 setUpRecyclerView(list, true)
             }
@@ -115,17 +115,37 @@ class HotFragment : Fragment(), HotRecyclerAdapter.Callback {
 
         boardGameViewModel.topGamesList.observe(viewLifecycleOwner, Observer { list ->
 
+            if(!boardGameViewModel.firstSetup.value!!)
             if(binding.sbListType.position == 2){
-                setUpRecyclerView(list, true)
+                setUpRecyclerView(list, false)
             }
 
 
+        })
+
+        boardGameViewModel.favGamesList.observe(viewLifecycleOwner, {
+            if(it != null){
+                if(boardGameViewModel.firstSetup.value!!){
+                    switchList(binding.sbListType.position)
+                    boardGameViewModel.firstSetup.postValue(false)
+                }else{
+                    mAdapter.favGames = it
+                    mAdapter.notifyItemChanged(lastFavoritedPosition)
+                }
+
+            }else{
+                boardGameViewModel.firstSetup.postValue(false)
+                switchList(binding.sbListType.position)
+
+            }
         })
 
 
         boardGameViewModel.isLoading.observe(viewLifecycleOwner, Observer {
             (activity as MainActivity).progressBar?.isVisible = it
         })
+
+
 
     }
 
@@ -136,7 +156,13 @@ class HotFragment : Fragment(), HotRecyclerAdapter.Callback {
 
     fun setUpRecyclerView(mList:List<BoardGame>, showYear:Boolean){
         mRecyclerView = binding.rvHotList
-        mAdapter.HotRecyclerAdapter(mList, requireContext(), this)
+        if(boardGameViewModel.favGamesList.value.isNullOrEmpty()){
+            mAdapter.HotRecyclerAdapter(mList, emptyList(), requireContext(), this)
+
+        }else{
+            mAdapter.HotRecyclerAdapter(mList, boardGameViewModel.favGamesList.value!!, requireContext(), this)
+
+        }
         mAdapter.showYear = showYear
         if(isGrid) {
             showGrid()
@@ -167,6 +193,18 @@ class HotFragment : Fragment(), HotRecyclerAdapter.Callback {
         boardGameViewModel.boardGameDescription(boardGame.id)
         boardGameViewModel.selectedBoardGame.postValue(boardGame)
         this.findNavController().navigate(R.id.navigation_home)
+
+    }
+
+    override fun onFavBoardGameClicked(boardGame: BoardGame, position:Int, isFavorite:Boolean) {
+        lastFavoritedPosition = position
+
+        if(isFavorite){
+            boardGameViewModel.removeFavorite(boardGame)
+        }else {
+            boardGameViewModel.addFavorite(boardGame)
+        }
+
 
     }
 

@@ -27,14 +27,14 @@ public final class TaskDatabase_Impl extends TaskDatabase {
 
   @Override
   protected SupportSQLiteOpenHelper createOpenHelper(DatabaseConfiguration configuration) {
-    final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(configuration, new RoomOpenHelper.Delegate(7) {
+    final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(configuration, new RoomOpenHelper.Delegate(8) {
       @Override
       public void createAllTables(SupportSQLiteDatabase _db) {
         _db.execSQL("CREATE TABLE IF NOT EXISTS `user_entity` (`email` TEXT NOT NULL, `name` TEXT, `phone` TEXT, `hotList` TEXT, `upcomingList` TEXT, `favList` TEXT, `topList` TEXT, PRIMARY KEY(`email`))");
-        _db.execSQL("CREATE TABLE IF NOT EXISTS `boardgame_entity` (`id` TEXT NOT NULL, `type` TEXT, `imageurl` TEXT, `name` TEXT, `yearpublished` TEXT, `description` TEXT, PRIMARY KEY(`id`))");
+        _db.execSQL("CREATE TABLE IF NOT EXISTS `boardgame_entity` (`id` TEXT NOT NULL, `type` TEXT, `imageurl` TEXT, `name` TEXT, `yearpublished` TEXT, `description` TEXT, `rank` TEXT, PRIMARY KEY(`id`))");
         _db.execSQL("CREATE TABLE IF NOT EXISTS `UserBoardGameCrossRef` (`email` TEXT NOT NULL, `id` TEXT NOT NULL, PRIMARY KEY(`email`, `id`))");
         _db.execSQL("CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)");
-        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '75e128899f4b31ee8f76dab0179bf859')");
+        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '51e155c00453bcf09bfddcd47d097282')");
       }
 
       @Override
@@ -97,13 +97,14 @@ public final class TaskDatabase_Impl extends TaskDatabase {
                   + " Expected:\n" + _infoUserEntity + "\n"
                   + " Found:\n" + _existingUserEntity);
         }
-        final HashMap<String, TableInfo.Column> _columnsBoardgameEntity = new HashMap<String, TableInfo.Column>(6);
+        final HashMap<String, TableInfo.Column> _columnsBoardgameEntity = new HashMap<String, TableInfo.Column>(7);
         _columnsBoardgameEntity.put("id", new TableInfo.Column("id", "TEXT", true, 1, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsBoardgameEntity.put("type", new TableInfo.Column("type", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsBoardgameEntity.put("imageurl", new TableInfo.Column("imageurl", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsBoardgameEntity.put("name", new TableInfo.Column("name", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsBoardgameEntity.put("yearpublished", new TableInfo.Column("yearpublished", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsBoardgameEntity.put("description", new TableInfo.Column("description", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsBoardgameEntity.put("rank", new TableInfo.Column("rank", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
         final HashSet<TableInfo.ForeignKey> _foreignKeysBoardgameEntity = new HashSet<TableInfo.ForeignKey>(0);
         final HashSet<TableInfo.Index> _indicesBoardgameEntity = new HashSet<TableInfo.Index>(0);
         final TableInfo _infoBoardgameEntity = new TableInfo("boardgame_entity", _columnsBoardgameEntity, _foreignKeysBoardgameEntity, _indicesBoardgameEntity);
@@ -127,7 +128,7 @@ public final class TaskDatabase_Impl extends TaskDatabase {
         }
         return new RoomOpenHelper.ValidationResult(true, null);
       }
-    }, "75e128899f4b31ee8f76dab0179bf859", "9f424aa4e00870468d4323222476640c");
+    }, "51e155c00453bcf09bfddcd47d097282", "001652944dca46096ce4498cfe3232e0");
     final SupportSQLiteOpenHelper.Configuration _sqliteConfig = SupportSQLiteOpenHelper.Configuration.builder(configuration.context)
         .name(configuration.name)
         .callback(_openCallback)

@@ -26,6 +26,9 @@ public final class ItemHotListBinding implements ViewBinding {
   public final ImageView ivImage;
 
   @NonNull
+  public final TextView tvRank;
+
+  @NonNull
   public final TextView tvSubtitle;
 
   @NonNull
@@ -35,11 +38,12 @@ public final class ItemHotListBinding implements ViewBinding {
   public final TextView tvYear;
 
   private ItemHotListBinding(@NonNull ConstraintLayout rootView, @NonNull ImageView ivFav,
-      @NonNull ImageView ivImage, @NonNull TextView tvSubtitle, @NonNull TextView tvTitle,
-      @NonNull TextView tvYear) {
+      @NonNull ImageView ivImage, @NonNull TextView tvRank, @NonNull TextView tvSubtitle,
+      @NonNull TextView tvTitle, @NonNull TextView tvYear) {
     this.rootView = rootView;
     this.ivFav = ivFav;
     this.ivImage = ivImage;
+    this.tvRank = tvRank;
     this.tvSubtitle = tvSubtitle;
     this.tvTitle = tvTitle;
     this.tvYear = tvYear;
@@ -84,6 +88,12 @@ public final class ItemHotListBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.tvRank;
+      TextView tvRank = rootView.findViewById(id);
+      if (tvRank == null) {
+        break missingId;
+      }
+
       id = R.id.tvSubtitle;
       TextView tvSubtitle = rootView.findViewById(id);
       if (tvSubtitle == null) {
@@ -102,7 +112,7 @@ public final class ItemHotListBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ItemHotListBinding((ConstraintLayout) rootView, ivFav, ivImage, tvSubtitle,
+      return new ItemHotListBinding((ConstraintLayout) rootView, ivFav, ivImage, tvRank, tvSubtitle,
           tvTitle, tvYear);
     }
     String missingId = rootView.getResources().getResourceName(id);

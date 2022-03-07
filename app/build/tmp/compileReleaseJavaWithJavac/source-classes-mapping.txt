@@ -6,6 +6,7 @@ com/kitam/bgapp/database/TaskDao_Impl.java
  com.kitam.bgapp.database.TaskDao_Impl$4
  com.kitam.bgapp.database.TaskDao_Impl$5
  com.kitam.bgapp.database.TaskDao_Impl$6
+ com.kitam.bgapp.database.TaskDao_Impl$7
 com/kitam/bgapp/databinding/ActivityMainBinding.java
  com.kitam.bgapp.databinding.ActivityMainBinding
 androidx/databinding/DataBinderMapperImpl.java
@@ -16,6 +17,8 @@ com/kitam/bgapp/databinding/FragmentSearchListBinding.java
  com.kitam.bgapp.databinding.FragmentSearchListBinding
 androidx/databinding/library/baseAdapters/BR.java
  androidx.databinding.library.baseAdapters.BR
+com/kitam/bgapp/databinding/ItemFavoriteBinding.java
+ com.kitam.bgapp.databinding.ItemFavoriteBinding
 com/kitam/bgapp/databinding/FragmentHomeAltBinding.java
  com.kitam.bgapp.databinding.FragmentHomeAltBinding
 com/kitam/bgapp/databinding/ItemHotListBinding.java

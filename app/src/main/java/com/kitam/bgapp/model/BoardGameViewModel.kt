@@ -14,6 +14,7 @@ import com.kitam.bgapp.BGToolBeltApp
 import com.kitam.bgapp.data.data.BoardGame
 import com.kitam.bgapp.data.data.BoardGameDetail
 import com.kitam.bgapp.data.data.User
+import com.kitam.bgapp.data.data.UserBoardGameCrossRef
 import com.kitam.bgapp.domain.*
 import com.kitam.bgapp.tools.SingleLiveEvent
 import com.kitam.bgapp.tools.isNull
@@ -29,15 +30,21 @@ class BoardGameViewModel : ViewModel() {
     var getRandomBoardGameUseCase = GetRandomBoardGameUseCase()
     var getBoardGameByIdUseCase = GetBoardGameByIdUseCase()
     var getDatabaseBoardGamesUseCase = GetDatabaseBoardGamesUseCase()
+    var getDatabaseFavGamesByUser = GetDatabaseFavGamesByUserCase()
+    var insertFavGameUseCase = InsertFavGameUseCase()
+
     val hotGamesList = MutableLiveData<List<BoardGame>>()
     val topGamesList = MutableLiveData<List<BoardGame>>()
     val upcomingGamesList = MutableLiveData<List<BoardGame>>()
+    val favGamesList = MutableLiveData<List<BoardGame>>()
     val boardGameModel = SingleLiveEvent<BoardGameDetail>()
     val isLoading = MutableLiveData<Boolean>()
+    val firstSetup = MutableLiveData<Boolean>()
     val needsSessionRefresh = MutableLiveData<Boolean>()
     val currentUser = MutableLiveData<User>()
     val selectedBoardGame = MutableLiveData<BoardGame>()
     val toastText = MutableLiveData<String>()
+
 
     private val coroutineExceptionHandler = CoroutineExceptionHandler{_ , throwable ->
         isLoading.postValue(false)
@@ -65,6 +72,7 @@ class BoardGameViewModel : ViewModel() {
                     needsSessionRefresh.postValue(true)
                 }
                 currentUser.postValue(user)
+                updateFavoriteGamesByUser(user.email)
 
 
                 if (user.hotList.isNullOrEmpty() || user.upcomingList.isNullOrEmpty()) {
@@ -243,20 +251,65 @@ class BoardGameViewModel : ViewModel() {
         }
 
     }
-/*
-    fun randomBoardGame() {
-        isLoading.postValue(true)
-        val boardGame = getRandomBoardGameUseCase()
-        if(boardGame!=null){
-            boardGameModel.postValue(boardGame!!)
-            viewModelScope.launch {
-                val fullBoardGame = getBoardGameByIdUseCase("thing?id=" + boardGame.id)
-                if (!fullBoardGame.isNullOrEmpty()) {
-                    boardGameModel.postValue(fullBoardGame[0])
+
+    fun addFavorite(boardGame:BoardGame) {
+        viewModelScope.launch {
+            if (!boardGame.isNull()) {
+                withContext(Dispatchers.IO) {
+                    BGToolBeltApp.database.taskDao().insertGame(boardGame)
+                    if (!currentUser.value.isNull()) {
+                        BGToolBeltApp.database.taskDao().insertUserWithBoardGames(
+                            UserBoardGameCrossRef(
+                                currentUser.value!!.email,
+                                boardGame.id
+                            )
+                        )
+
+                        updateFavoriteGamesByUser(currentUser.value!!.email)
+
+                    }
                 }
             }
-
         }
-        isLoading.postValue(false)
-    }*/
+    }
+
+    fun removeFavorite(boardGame:BoardGame) {
+        viewModelScope.launch {
+            if(!boardGame.isNull()) {
+                if (!currentUser.value.isNull()) {
+                    withContext(Dispatchers.IO) {
+                        BGToolBeltApp.database.taskDao().removeUserWithBoardGames(
+                            UserBoardGameCrossRef(
+                                currentUser.value!!.email,
+                                boardGame.id
+                            )
+                        )
+
+                        updateFavoriteGamesByUser(currentUser.value!!.email)
+
+                    }
+                }
+            }
+        }
+    }
+
+    fun updateFavoriteGamesByUser(email:String) {
+        viewModelScope.launch {
+
+
+            withContext(Dispatchers.IO) {
+                try {
+                    val result = getDatabaseFavGamesByUser(email)
+                    if (!result.isNullOrEmpty()) {
+                        if (!result[0].boardGames.isNullOrEmpty()) {
+                            favGamesList.postValue(result[0].boardGames)
+                        }
+                    }
+                } catch (e: Exception) {
+                    favGamesList.postValue(emptyList())
+                }
+            }
+        }
+    }
+
 }

@@ -26,6 +26,7 @@ data class BoardGame(
     var name:String?,
     var yearpublished:String?,
     var description:String?,
+    var rank:String?
 
 )
 

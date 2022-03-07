@@ -39,6 +39,10 @@ interface TaskDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertUserWithBoardGames(userBoardGameCrossRef: UserBoardGameCrossRef?): Long
 
+    @Delete
+    fun removeUserWithBoardGames(userBoardGameCrossRef: UserBoardGameCrossRef?): Int
+
+
     @Transaction
     @Query("SELECT * FROM user_entity where email = :email")
     fun getUserFavGames(email: String): List<UserFavBoardGames>

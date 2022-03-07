@@ -2,6 +2,7 @@ package com.kitam.bgapp.database;
 
 import android.database.Cursor;
 import androidx.collection.ArrayMap;
+import androidx.room.EntityDeletionOrUpdateAdapter;
 import androidx.room.EntityInsertionAdapter;
 import androidx.room.RoomDatabase;
 import androidx.room.RoomSQLiteQuery;
@@ -34,6 +35,8 @@ public final class TaskDao_Impl implements TaskDao {
   private final EntityInsertionAdapter<BoardGame> __insertionAdapterOfBoardGame;
 
   private final EntityInsertionAdapter<UserBoardGameCrossRef> __insertionAdapterOfUserBoardGameCrossRef;
+
+  private final EntityDeletionOrUpdateAdapter<UserBoardGameCrossRef> __deletionAdapterOfUserBoardGameCrossRef;
 
   private final SharedSQLiteStatement __preparedStmtOfUpdateHotList;
 
@@ -99,7 +102,7 @@ public final class TaskDao_Impl implements TaskDao {
     this.__insertionAdapterOfBoardGame = new EntityInsertionAdapter<BoardGame>(__db) {
       @Override
       public String createQuery() {
-        return "INSERT OR REPLACE INTO `boardgame_entity` (`id`,`type`,`imageurl`,`name`,`yearpublished`,`description`) VALUES (?,?,?,?,?,?)";
+        return "INSERT OR REPLACE INTO `boardgame_entity` (`id`,`type`,`imageurl`,`name`,`yearpublished`,`description`,`rank`) VALUES (?,?,?,?,?,?,?)";
       }
 
       @Override
@@ -134,12 +137,37 @@ public final class TaskDao_Impl implements TaskDao {
         } else {
           stmt.bindString(6, value.getDescription());
         }
+        if (value.getRank() == null) {
+          stmt.bindNull(7);
+        } else {
+          stmt.bindString(7, value.getRank());
+        }
       }
     };
     this.__insertionAdapterOfUserBoardGameCrossRef = new EntityInsertionAdapter<UserBoardGameCrossRef>(__db) {
       @Override
       public String createQuery() {
         return "INSERT OR REPLACE INTO `UserBoardGameCrossRef` (`email`,`id`) VALUES (?,?)";
+      }
+
+      @Override
+      public void bind(SupportSQLiteStatement stmt, UserBoardGameCrossRef value) {
+        if (value.getEmail() == null) {
+          stmt.bindNull(1);
+        } else {
+          stmt.bindString(1, value.getEmail());
+        }
+        if (value.getId() == null) {
+          stmt.bindNull(2);
+        } else {
+          stmt.bindString(2, value.getId());
+        }
+      }
+    };
+    this.__deletionAdapterOfUserBoardGameCrossRef = new EntityDeletionOrUpdateAdapter<UserBoardGameCrossRef>(__db) {
+      @Override
+      public String createQuery() {
+        return "DELETE FROM `UserBoardGameCrossRef` WHERE `email` = ? AND `id` = ?";
       }
 
       @Override
@@ -213,6 +241,20 @@ public final class TaskDao_Impl implements TaskDao {
       long _result = __insertionAdapterOfUserBoardGameCrossRef.insertAndReturnId(userBoardGameCrossRef);
       __db.setTransactionSuccessful();
       return _result;
+    } finally {
+      __db.endTransaction();
+    }
+  }
+
+  @Override
+  public int removeUserWithBoardGames(final UserBoardGameCrossRef userBoardGameCrossRef) {
+    __db.assertNotSuspendingTransaction();
+    int _total = 0;
+    __db.beginTransaction();
+    try {
+      _total +=__deletionAdapterOfUserBoardGameCrossRef.handle(userBoardGameCrossRef);
+      __db.setTransactionSuccessful();
+      return _total;
     } finally {
       __db.endTransaction();
     }
@@ -422,6 +464,7 @@ public final class TaskDao_Impl implements TaskDao {
       final int _cursorIndexOfName = CursorUtil.getColumnIndexOrThrow(_cursor, "name");
       final int _cursorIndexOfYearpublished = CursorUtil.getColumnIndexOrThrow(_cursor, "yearpublished");
       final int _cursorIndexOfDescription = CursorUtil.getColumnIndexOrThrow(_cursor, "description");
+      final int _cursorIndexOfRank = CursorUtil.getColumnIndexOrThrow(_cursor, "rank");
       final List<BoardGame> _result = new ArrayList<BoardGame>(_cursor.getCount());
       while(_cursor.moveToNext()) {
         final BoardGame _item;
@@ -437,7 +480,9 @@ public final class TaskDao_Impl implements TaskDao {
         _tmpYearpublished = _cursor.getString(_cursorIndexOfYearpublished);
         final String _tmpDescription;
         _tmpDescription = _cursor.getString(_cursorIndexOfDescription);
-        _item = new BoardGame(_tmpId,_tmpType,_tmpImageurl,_tmpName,_tmpYearpublished,_tmpDescription);
+        final String _tmpRank;
+        _tmpRank = _cursor.getString(_cursorIndexOfRank);
+        _item = new BoardGame(_tmpId,_tmpType,_tmpImageurl,_tmpName,_tmpYearpublished,_tmpDescription,_tmpRank);
         _result.add(_item);
       }
       return _result;
@@ -466,6 +511,7 @@ public final class TaskDao_Impl implements TaskDao {
       final int _cursorIndexOfName = CursorUtil.getColumnIndexOrThrow(_cursor, "name");
       final int _cursorIndexOfYearpublished = CursorUtil.getColumnIndexOrThrow(_cursor, "yearpublished");
       final int _cursorIndexOfDescription = CursorUtil.getColumnIndexOrThrow(_cursor, "description");
+      final int _cursorIndexOfRank = CursorUtil.getColumnIndexOrThrow(_cursor, "rank");
       final BoardGame _result;
       if(_cursor.moveToFirst()) {
         final String _tmpId;
@@ -480,7 +526,9 @@ public final class TaskDao_Impl implements TaskDao {
         _tmpYearpublished = _cursor.getString(_cursorIndexOfYearpublished);
         final String _tmpDescription;
         _tmpDescription = _cursor.getString(_cursorIndexOfDescription);
-        _result = new BoardGame(_tmpId,_tmpType,_tmpImageurl,_tmpName,_tmpYearpublished,_tmpDescription);
+        final String _tmpRank;
+        _tmpRank = _cursor.getString(_cursorIndexOfRank);
+        _result = new BoardGame(_tmpId,_tmpType,_tmpImageurl,_tmpName,_tmpYearpublished,_tmpDescription,_tmpRank);
       } else {
         _result = null;
       }
@@ -603,7 +651,7 @@ public final class TaskDao_Impl implements TaskDao {
       return;
     }
     StringBuilder _stringBuilder = StringUtil.newStringBuilder();
-    _stringBuilder.append("SELECT `boardgame_entity`.`id` AS `id`,`boardgame_entity`.`type` AS `type`,`boardgame_entity`.`imageurl` AS `imageurl`,`boardgame_entity`.`name` AS `name`,`boardgame_entity`.`yearpublished` AS `yearpublished`,`boardgame_entity`.`description` AS `description`,_junction.`email` FROM `UserBoardGameCrossRef` AS _junction INNER JOIN `boardgame_entity` ON (_junction.`id` = `boardgame_entity`.`id`) WHERE _junction.`email` IN (");
+    _stringBuilder.append("SELECT `boardgame_entity`.`id` AS `id`,`boardgame_entity`.`type` AS `type`,`boardgame_entity`.`imageurl` AS `imageurl`,`boardgame_entity`.`name` AS `name`,`boardgame_entity`.`yearpublished` AS `yearpublished`,`boardgame_entity`.`description` AS `description`,`boardgame_entity`.`rank` AS `rank`,_junction.`email` FROM `UserBoardGameCrossRef` AS _junction INNER JOIN `boardgame_entity` ON (_junction.`id` = `boardgame_entity`.`id`) WHERE _junction.`email` IN (");
     final int _inputSize = __mapKeySet.size();
     StringUtil.appendPlaceholders(_stringBuilder, _inputSize);
     _stringBuilder.append(")");
@@ -621,7 +669,7 @@ public final class TaskDao_Impl implements TaskDao {
     }
     final Cursor _cursor = DBUtil.query(__db, _stmt, false, null);
     try {
-      final int _itemKeyIndex = 6; // _junction.email;
+      final int _itemKeyIndex = 7; // _junction.email;
       if (_itemKeyIndex == -1) {
         return;
       }
@@ -631,6 +679,7 @@ public final class TaskDao_Impl implements TaskDao {
       final int _cursorIndexOfName = CursorUtil.getColumnIndex(_cursor, "name");
       final int _cursorIndexOfYearpublished = CursorUtil.getColumnIndex(_cursor, "yearpublished");
       final int _cursorIndexOfDescription = CursorUtil.getColumnIndex(_cursor, "description");
+      final int _cursorIndexOfRank = CursorUtil.getColumnIndex(_cursor, "rank");
       while(_cursor.moveToNext()) {
         final String _tmpKey = _cursor.getString(_itemKeyIndex);
         ArrayList<BoardGame> _tmpRelation = _map.get(_tmpKey);
@@ -672,7 +721,13 @@ public final class TaskDao_Impl implements TaskDao {
           } else {
             _tmpDescription = _cursor.getString(_cursorIndexOfDescription);
           }
-          _item_1 = new BoardGame(_tmpId,_tmpType,_tmpImageurl,_tmpName,_tmpYearpublished,_tmpDescription);
+          final String _tmpRank;
+          if (_cursorIndexOfRank == -1) {
+            _tmpRank = null;
+          } else {
+            _tmpRank = _cursor.getString(_cursorIndexOfRank);
+          }
+          _item_1 = new BoardGame(_tmpId,_tmpType,_tmpImageurl,_tmpName,_tmpYearpublished,_tmpDescription,_tmpRank);
           _tmpRelation.add(_item_1);
         }
       }
