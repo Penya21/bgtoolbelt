@@ -6,9 +6,9 @@ import android.view.View;
 import androidx.databinding.DataBinderMapper;
 import androidx.databinding.DataBindingComponent;
 import androidx.databinding.ViewDataBinding;
-import com.kitam.bgapp.databinding.FragmentHomeAltBindingImpl;
-import com.kitam.bgapp.databinding.FragmentHomeBindingImpl;
-import com.kitam.bgapp.databinding.FragmentHotBindingImpl;
+import com.kitam.bgapp.databinding.FragmentBoardgameDetailAltBindingImpl;
+import com.kitam.bgapp.databinding.FragmentBoardgameDetailBindingImpl;
+import com.kitam.bgapp.databinding.FragmentSearchListBindingImpl;
 import java.lang.IllegalArgumentException;
 import java.lang.Integer;
 import java.lang.Object;
@@ -20,18 +20,18 @@ import java.util.HashMap;
 import java.util.List;
 
 public class DataBinderMapperImpl extends DataBinderMapper {
-  private static final int LAYOUT_FRAGMENTHOME = 1;
+  private static final int LAYOUT_FRAGMENTBOARDGAMEDETAIL = 1;
 
-  private static final int LAYOUT_FRAGMENTHOMEALT = 2;
+  private static final int LAYOUT_FRAGMENTBOARDGAMEDETAILALT = 2;
 
-  private static final int LAYOUT_FRAGMENTHOT = 3;
+  private static final int LAYOUT_FRAGMENTSEARCHLIST = 3;
 
   private static final SparseIntArray INTERNAL_LAYOUT_ID_LOOKUP = new SparseIntArray(3);
 
   static {
-    INTERNAL_LAYOUT_ID_LOOKUP.put(com.kitam.bgapp.R.layout.fragment_home, LAYOUT_FRAGMENTHOME);
-    INTERNAL_LAYOUT_ID_LOOKUP.put(com.kitam.bgapp.R.layout.fragment_home_alt, LAYOUT_FRAGMENTHOMEALT);
-    INTERNAL_LAYOUT_ID_LOOKUP.put(com.kitam.bgapp.R.layout.fragment_hot, LAYOUT_FRAGMENTHOT);
+    INTERNAL_LAYOUT_ID_LOOKUP.put(com.kitam.bgapp.R.layout.fragment_boardgame_detail, LAYOUT_FRAGMENTBOARDGAMEDETAIL);
+    INTERNAL_LAYOUT_ID_LOOKUP.put(com.kitam.bgapp.R.layout.fragment_boardgame_detail_alt, LAYOUT_FRAGMENTBOARDGAMEDETAILALT);
+    INTERNAL_LAYOUT_ID_LOOKUP.put(com.kitam.bgapp.R.layout.fragment_search_list, LAYOUT_FRAGMENTSEARCHLIST);
   }
 
   @Override
@@ -43,23 +43,23 @@ public class DataBinderMapperImpl extends DataBinderMapper {
         throw new RuntimeException("view must have a tag");
       }
       switch(localizedLayoutId) {
-        case  LAYOUT_FRAGMENTHOME: {
-          if ("layout/fragment_home_0".equals(tag)) {
-            return new FragmentHomeBindingImpl(component, view);
+        case  LAYOUT_FRAGMENTBOARDGAMEDETAIL: {
+          if ("layout/fragment_boardgame_detail_0".equals(tag)) {
+            return new FragmentBoardgameDetailBindingImpl(component, view);
           }
-          throw new IllegalArgumentException("The tag for fragment_home is invalid. Received: " + tag);
+          throw new IllegalArgumentException("The tag for fragment_boardgame_detail is invalid. Received: " + tag);
         }
-        case  LAYOUT_FRAGMENTHOMEALT: {
-          if ("layout/fragment_home_alt_0".equals(tag)) {
-            return new FragmentHomeAltBindingImpl(component, view);
+        case  LAYOUT_FRAGMENTBOARDGAMEDETAILALT: {
+          if ("layout/fragment_boardgame_detail_alt_0".equals(tag)) {
+            return new FragmentBoardgameDetailAltBindingImpl(component, view);
           }
-          throw new IllegalArgumentException("The tag for fragment_home_alt is invalid. Received: " + tag);
+          throw new IllegalArgumentException("The tag for fragment_boardgame_detail_alt is invalid. Received: " + tag);
         }
-        case  LAYOUT_FRAGMENTHOT: {
-          if ("layout/fragment_hot_0".equals(tag)) {
-            return new FragmentHotBindingImpl(component, view);
+        case  LAYOUT_FRAGMENTSEARCHLIST: {
+          if ("layout/fragment_search_list_0".equals(tag)) {
+            return new FragmentSearchListBindingImpl(component, view);
           }
-          throw new IllegalArgumentException("The tag for fragment_hot is invalid. Received: " + tag);
+          throw new IllegalArgumentException("The tag for fragment_search_list is invalid. Received: " + tag);
         }
       }
     }
@@ -117,9 +117,9 @@ public class DataBinderMapperImpl extends DataBinderMapper {
     static final HashMap<String, Integer> sKeys = new HashMap<String, Integer>(3);
 
     static {
-      sKeys.put("layout/fragment_home_0", com.kitam.bgapp.R.layout.fragment_home);
-      sKeys.put("layout/fragment_home_alt_0", com.kitam.bgapp.R.layout.fragment_home_alt);
-      sKeys.put("layout/fragment_hot_0", com.kitam.bgapp.R.layout.fragment_hot);
+      sKeys.put("layout/fragment_boardgame_detail_0", com.kitam.bgapp.R.layout.fragment_boardgame_detail);
+      sKeys.put("layout/fragment_boardgame_detail_alt_0", com.kitam.bgapp.R.layout.fragment_boardgame_detail_alt);
+      sKeys.put("layout/fragment_search_list_0", com.kitam.bgapp.R.layout.fragment_search_list);
     }
   }
 }

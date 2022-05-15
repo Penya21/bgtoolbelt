@@ -1,6 +1,9 @@
 package com.kitam.bgapp.data.data
 
+import androidx.appcompat.graphics.drawable.DrawableWrapper
 import androidx.room.*
+import androidx.room.ColumnInfo.VALUE_UNSPECIFIED
+import com.google.android.gms.maps.model.LatLng
 import com.google.gson.Gson
 import com.google.gson.annotations.SerializedName
 import com.google.gson.reflect.TypeToken
@@ -20,13 +23,16 @@ data class Root(
 @Entity(tableName = "boardgame_entity")
 data class BoardGame(
     @PrimaryKey
-    var id:String,
-    var type:String?,
-    var imageurl:String?,
-    var name:String?,
-    var yearpublished:String?,
-    var description:String?,
-    var rank:String?
+    var id:String = "",
+    var type:String? = "",
+    var imageurl:String? = "",
+    var name:String? = "",
+    var yearpublished:String? = "",
+    var description:String? = "",
+    var rank:String? = "",
+    var href:String? = "",
+    @Ignore
+    var isAd: Boolean? = false
 
 )
 
@@ -34,14 +40,24 @@ data class BoardGame(
 data class User(
     @PrimaryKey
     var email:String,
+    @ColumnInfo(name = "name", defaultValue = VALUE_UNSPECIFIED)
     var name:String?,
+    @ColumnInfo(name = "phone", defaultValue = VALUE_UNSPECIFIED)
     var phone:String?,
+    @ColumnInfo(name = "hotList", defaultValue = VALUE_UNSPECIFIED)
     var hotList: List<BoardGame>?,
+    @ColumnInfo(name = "upcomingList", defaultValue = VALUE_UNSPECIFIED)
     var upcomingList: List<BoardGame>?,
+    @ColumnInfo(name = "favList", defaultValue = VALUE_UNSPECIFIED)
     var favList: List<BoardGame>?,
-    var topList: List<BoardGame>?
+    @ColumnInfo(name = "topList", defaultValue = VALUE_UNSPECIFIED)
+    var topList: List<BoardGame>?,
+    @ColumnInfo(name = "sponsoredList", defaultValue = VALUE_UNSPECIFIED)
+    var sponsoredList: List<BoardGame>?,
+    @ColumnInfo(name = "lastUpdate", defaultValue = VALUE_UNSPECIFIED)
+    var lastUpdate: Long?
 
-)
+    )
 
 @Entity(primaryKeys = ["email", "id"])
 data class UserBoardGameCrossRef(
@@ -618,4 +634,24 @@ data class Item (
 
 data class RequestBoardGameDetail(
     var gameId: String?
+)
+
+data class RequestProductsInStoresByName(
+    var keyword: String?
+)
+
+data class Product(
+    var storeName: String?,
+    var productName: String?,
+    var productRef: String?,
+    var productImage: String?,
+    var price: Number?,
+    var priceText: String?
+)
+
+data class Store(
+    var coordinates: LatLng,
+    var name: String,
+    var website: String?,
+    var logo: Int
 )

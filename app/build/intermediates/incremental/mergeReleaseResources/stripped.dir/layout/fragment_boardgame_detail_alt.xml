@@ -1,0 +1,444 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+                                                       
+                                                  
+                                                     
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/viewContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+         android:tag="layout/fragment_boardgame_detail_alt_0" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools" tools:context=".ui.home.BoardGameDetailFragment">
+
+
+
+        <com.denzcoskun.imageslider.ImageSlider
+            android:id="@+id/image_slider"
+            android:layout_width="wrap_content"
+            android:layout_height="200dp"
+            android:visibility="gone"
+            android:layout_marginTop="16dp"
+            app:iss_placeholder="@color/white"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:iss_auto_cycle="false"
+            app:iss_period="1000"
+            app:iss_delay="0"/>
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" >
+            <ImageView
+                android:id="@+id/ivImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:adjustViewBounds="true"
+                />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:id="@+id/llTags"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cvDescription"
+            android:orientation="horizontal">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="50dp"
+                android:layout_margin="16dp"
+                android:visibility="gone"
+                android:layout_height="50dp"
+                android:id="@+id/clDuration">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/duration">
+
+                </ImageView>
+
+                <TextView
+                    android:id="@+id/tvDuration"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:textSize="8sp"
+                    android:gravity="center"
+                    android:text="90 min"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_margin="3dp">
+
+                </TextView>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="50dp"
+                android:layout_margin="16dp"
+                android:layout_height="50dp"
+                android:visibility="gone"
+
+                app:layout_constraintStart_toEndOf="@id/clDuration"
+                app:layout_constraintTop_toBottomOf="@id/cvImage"
+                android:id="@+id/clNumPlayers">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/players">
+
+                </ImageView>
+
+                <TextView
+                    android:id="@+id/tvNumPlayers"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:textSize="8sp"
+                    android:gravity="center"
+                    android:text="1-4"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_margin="3dp">
+
+                </TextView>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="50dp"
+                android:layout_margin="16dp"
+                android:layout_height="50dp"
+                android:visibility="gone"
+
+                app:layout_constraintStart_toEndOf="@id/clNumPlayers"
+                app:layout_constraintTop_toBottomOf="@id/cvImage"
+                android:id="@+id/clAges">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ages">
+
+                </ImageView>
+
+                <TextView
+                    android:id="@+id/tvAges"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:textSize="8sp"
+                    android:gravity="center"
+                    android:text="+13 años"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_margin="3dp">
+
+                </TextView>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="50dp"
+                android:layout_margin="16dp"
+                android:layout_height="50dp"
+                android:visibility="gone"
+                app:layout_constraintStart_toEndOf="@id/clAges"
+                app:layout_constraintTop_toBottomOf="@id/cvImage"
+                android:id="@+id/clDifficulty">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/knowledge">
+
+                </ImageView>
+
+                <TextView
+                    android:id="@+id/tvDifficulty"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:textSize="8sp"
+                    android:gravity="center"
+                    android:text="Intermedia"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_margin="3dp">
+
+                </TextView>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cvDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            android:animateLayoutChanges="true"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/image_slider"
+
+            >
+
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="16dp"
+                    >
+
+
+                <TextView
+                    android:id="@+id/tvHome"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textSize="26sp"
+                    android:paddingTop="16dp"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:visibility="visible"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+
+                    <com.addisonelliott.segmentedbutton.SegmentedButtonGroup
+                        android:id="@+id/sbListType"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:minHeight="48dp"
+                        android:elevation="2dp"
+                        android:background="@color/white"
+                        app:borderWidth="1dp"
+                        app:borderColor="@color/white"
+                        app:divider="@color/colorPrimaryDark"
+                        app:dividerPadding="10dp"
+                        app:dividerWidth="0dp"
+                        app:position="0"
+                        app:radius="10dp"
+                        app:ripple="true"
+                        android:gravity="center"
+                        android:visibility="gone"
+                        android:textAlignment="center"
+                        android:foregroundGravity="center"
+                        app:rippleColor="@color/colorPrimaryDark"
+                        app:selectedBackground="@color/colorPrimary"
+                        app:layout_constraintTop_toBottomOf="@id/tvHome"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginBottom="16dp"
+                        app:layout_constraintEnd_toEndOf="parent">
+
+
+                        <com.addisonelliott.segmentedbutton.SegmentedButton
+                            android:layout_width="0dp"
+                            android:layout_height="48dp"
+                            android:minHeight="48dp"
+                            android:layout_weight="1"
+                            android:contentDescription="@string/cd_bot_n_detalle"
+                            android:textAlignment="center"
+                            android:layout_gravity="center"
+                            app:selectedTextColor="@color/white"
+                            app:text="Detalle"
+                            app:linesCount="1"
+                            app:textSize="13sp"
+                            android:foregroundGravity="center"
+                            android:ellipsize="marquee"
+                            app:textColor="@color/colorPrimaryDark" />
+
+                        <com.addisonelliott.segmentedbutton.SegmentedButton
+                            android:layout_width="0dp"
+                            android:layout_height="48dp"
+                            android:minHeight="48dp"
+                            android:contentDescription="@string/cd_bot_n_tiendas"
+                            android:layout_weight="1"
+                            app:linesCount="1"
+                            app:textSize="12sp"
+                            android:textAlignment="center"
+                            android:foregroundGravity="center"
+                            android:layout_gravity="center"
+                            android:ellipsize="marquee"
+                            app:selectedTextColor="@color/white"
+                            app:text="Tiendas"
+                            app:textColor="@color/colorPrimaryDark" />
+
+                    </com.addisonelliott.segmentedbutton.SegmentedButtonGroup>
+
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:id="@+id/cv_text_description"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@id/llTags"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/light_gray_2"
+                android:padding="16dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:paddingTop="16dp"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"
+                    android:visibility="visible" />
+
+                <ImageView
+                    android:id="@+id/ivExpandDescription"
+                    android:layout_width="24dp"
+                    android:layout_height="wrap_content"
+                    app:tint="@color/light_gray"
+                    android:layout_gravity="center"
+                    android:src="@drawable/outline_expand_more_white_48">
+
+                </ImageView>
+
+            </LinearLayout>
+
+
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+        <TextView
+            android:id="@+id/tvAuthor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="24dp"
+            android:textSize="16sp"
+            android:textStyle="italic"
+            android:visibility="visible"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@id/cv_text_description"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/tvYear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:textStyle="italic"
+            android:visibility="visible"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@id/tvAuthor"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/tvRank"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:textStyle="italic"
+            android:visibility="visible"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@id/tvYear"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+
+        <ImageView
+            android:id="@+id/ivFav"
+            android:contentDescription="@string/cd_remover_favorito"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/circle_primary_color"
+            android:src="@drawable/outline_favorite_24"
+            android:padding="8dp"
+            app:tint="@color/white"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="16dp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="@id/image_slider"
+            app:layout_constraintTop_toTopOf="@id/image_slider">
+
+        </ImageView>
+
+        <ImageView
+            android:id="@+id/ivShare"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:contentDescription="@string/cd_compartir"
+            android:background="@drawable/cirlce_cyan_color"
+            android:src="@drawable/outline_share_24"
+            android:padding="8dp"
+            app:tint="@color/white"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="16dp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="@id/image_slider"
+            app:layout_constraintTop_toBottomOf="@id/ivFav">
+
+        </ImageView>
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/fcvProductFragment"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@id/cvDescription"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:name="com.kitam.bgapp.ui.search.SearchProductFragment"
+
+            >
+
+        </androidx.fragment.app.FragmentContainerView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+         

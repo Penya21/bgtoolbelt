@@ -8,16 +8,16 @@
         "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable-xhdpi/outline_grid_view_white_48.png"
     },
     {
-        "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable-mdpi_login_background_7.jpg.flat",
-        "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable-mdpi/login_background_7.jpg"
-    },
-    {
         "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable-xxhdpi_players_table.png.flat",
         "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable-xxhdpi/players_table.png"
     },
     {
         "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable-xxhdpi_outline_grid_view_white_24.png.flat",
         "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable-xxhdpi/outline_grid_view_white_24.png"
+    },
+    {
+        "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/layout_fragment_boardgame_detail.xml.flat",
+        "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/layout/fragment_boardgame_detail.xml"
     },
     {
         "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable-xxhdpi_miniatures.png.flat",
@@ -30,6 +30,10 @@
     {
         "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable-xhdpi_heavy.png.flat",
         "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable-xhdpi/heavy.png"
+    },
+    {
+        "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable_logo_store_la_caravana.png.flat",
+        "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable/logo_store_la_caravana.png"
     },
     {
         "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable-xxxhdpi_strong_language.png.flat",
@@ -52,10 +56,6 @@
         "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable-xhdpi/choking_hazard_age.png"
     },
     {
-        "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable-mdpi_login_background_6.jpg.flat",
-        "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable-mdpi/login_background_6.jpg"
-    },
-    {
         "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable-hdpi_medium_heavy.png.flat",
         "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable-hdpi/medium_heavy.png"
     },
@@ -64,8 +64,16 @@
         "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable-mdpi/outline_expand_less_white_48.png"
     },
     {
+        "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable_logo_store_kallisti.png.flat",
+        "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable/logo_store_kallisti.png"
+    },
+    {
         "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable-xxhdpi_outline_expand_less_white_48.png.flat",
         "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable-xxhdpi/outline_expand_less_white_48.png"
+    },
+    {
+        "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/layout_item_hot_grid_ad.xml.flat",
+        "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/layout/item_hot_grid_ad.xml"
     },
     {
         "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable-hdpi_medium_light.png.flat",
@@ -88,6 +96,10 @@
         "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable-hdpi/outline_grid_view_white_18.png"
     },
     {
+        "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable_logo_store_wontolla_games.png.flat",
+        "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable/logo_store_wontolla_games.png"
+    },
+    {
         "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable-xxxhdpi_duration.png.flat",
         "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable-xxxhdpi/duration.png"
     },
@@ -104,12 +116,16 @@
         "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable-xhdpi/outline_list_white_36.png"
     },
     {
-        "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/mipmap-xxxhdpi_ic_launcher_foreground.png.flat",
-        "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/mipmap-xxxhdpi/ic_launcher_foreground.png"
+        "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable_outline_favorite_24.xml.flat",
+        "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable/outline_favorite_24.xml"
     },
     {
         "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable-hdpi_ic_fav_off.png.flat",
         "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable-hdpi/ic_fav_off.png"
+    },
+    {
+        "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/mipmap-xxxhdpi_ic_launcher_foreground.png.flat",
+        "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/mipmap-xxxhdpi/ic_launcher_foreground.png"
     },
     {
         "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable-xxxhdpi_outline_list_white_36.png.flat",
@@ -128,6 +144,10 @@
         "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml"
     },
     {
+        "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable_logo_store_raven_folks.png.flat",
+        "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable/logo_store_raven_folks.png"
+    },
+    {
         "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable-hdpi_puzzle.png.flat",
         "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable-hdpi/puzzle.png"
     },
@@ -144,6 +164,10 @@
         "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable-mdpi/outline_search_white_48.png"
     },
     {
+        "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable_image_slider_gradient.xml.flat",
+        "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable/image_slider_gradient.xml"
+    },
+    {
         "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable-mdpi_cards.png.flat",
         "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable-mdpi/cards.png"
     },
@@ -154,10 +178,6 @@
     {
         "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable-xxhdpi_choking_hazard_age.png.flat",
         "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable-xxhdpi/choking_hazard_age.png"
-    },
-    {
-        "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/layout_fragment_home_alt.xml.flat",
-        "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/layout/fragment_home_alt.xml"
     },
     {
         "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable-xxxhdpi_knowledge.png.flat",
@@ -180,24 +200,20 @@
         "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/mipmap-xhdpi/ic_launcher_foreground.png"
     },
     {
-        "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable-xhdpi_blank.png.flat",
-        "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable-xhdpi/blank.png"
-    },
-    {
         "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable-hdpi_outline_storefront_white_48.png.flat",
         "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable-hdpi/outline_storefront_white_48.png"
     },
     {
-        "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable-xxxhdpi_outline_storefront_white_48.png.flat",
-        "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable-xxxhdpi/outline_storefront_white_48.png"
+        "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable-xhdpi_blank.png.flat",
+        "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable-xhdpi/blank.png"
     },
     {
         "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable-xxxhdpi_outline_list_white_18.png.flat",
         "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable-xxxhdpi/outline_list_white_18.png"
     },
     {
-        "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable-mdpi_login_background_4.jpg.flat",
-        "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable-mdpi/login_background_4.jpg"
+        "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable-xxxhdpi_outline_storefront_white_48.png.flat",
+        "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable-xxxhdpi/outline_storefront_white_48.png"
     },
     {
         "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable-xhdpi_luck.png.flat",
@@ -212,6 +228,10 @@
         "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable-mdpi/interaction.png"
     },
     {
+        "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable_logo_store_el_duende.png.flat",
+        "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable/logo_store_el_duende.png"
+    },
+    {
         "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/layout_item_favorite.xml.flat",
         "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/layout/item_favorite.xml"
     },
@@ -224,8 +244,16 @@
         "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable-xxxhdpi/outline_grid_view_white_18.png"
     },
     {
+        "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/layout_fragment_product_list.xml.flat",
+        "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/layout/fragment_product_list.xml"
+    },
+    {
         "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable-xxhdpi_outline_list_white_18.png.flat",
         "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable-xxhdpi/outline_list_white_18.png"
+    },
+    {
+        "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable_logo_store_piramide.jpeg.flat",
+        "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable/logo_store_piramide.jpeg"
     },
     {
         "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/layout_fragment_search.xml.flat",
@@ -240,8 +268,16 @@
         "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable-xxhdpi/knowledge.png"
     },
     {
+        "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable_logo_store_club_juegos_de_mesa.jpeg.flat",
+        "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable/logo_store_club_juegos_de_mesa.jpeg"
+    },
+    {
         "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable-mdpi_outline_list_white_48.png.flat",
         "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable-mdpi/outline_list_white_48.png"
+    },
+    {
+        "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable_logo_store_games_smart.png.flat",
+        "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable/logo_store_games_smart.png"
     },
     {
         "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable-hdpi_medium.png.flat",
@@ -308,8 +344,16 @@
         "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable-xxhdpi/outline_list_white_48.png"
     },
     {
+        "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable_logo_store_playroom.png.flat",
+        "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable/logo_store_playroom.png"
+    },
+    {
         "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable-hdpi_outline_grid_view_white_24.png.flat",
         "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable-hdpi/outline_grid_view_white_24.png"
+    },
+    {
+        "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/layout_fragment_boardgame_detail_alt.xml.flat",
+        "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/layout/fragment_boardgame_detail_alt.xml"
     },
     {
         "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable-xxhdpi_tablet.png.flat",
@@ -336,6 +380,10 @@
         "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable-xxxhdpi/luck.png"
     },
     {
+        "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable_bg_white_rounded_corners_stroke.xml.flat",
+        "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable/bg_white_rounded_corners_stroke.xml"
+    },
+    {
         "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable-xhdpi_light.png.flat",
         "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable-xhdpi/light.png"
     },
@@ -346,6 +394,10 @@
     {
         "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable-xhdpi_duration.png.flat",
         "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable-xhdpi/duration.png"
+    },
+    {
+        "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable_ic_pin_drop_48px.xml.flat",
+        "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable/ic_pin_drop_48px.xml"
     },
     {
         "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable-xxhdpi_medium_light.png.flat",
@@ -368,8 +420,8 @@
         "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/menu/bottom_nav_menu.xml"
     },
     {
-        "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable-mdpi_login_background_5.jpg.flat",
-        "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable-mdpi/login_background_5.jpg"
+        "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/layout_activity_zoom_image.xml.flat",
+        "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/layout/activity_zoom_image.xml"
     },
     {
         "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable-xxhdpi_outline_grid_view_white_48.png.flat",
@@ -378,6 +430,10 @@
     {
         "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable-hdpi_outline_search_white_48.png.flat",
         "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable-hdpi/outline_search_white_48.png"
+    },
+    {
+        "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable_ic_home_pin_48px.xml.flat",
+        "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable/ic_home_pin_48px.xml"
     },
     {
         "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable_bg_gradient.xml.flat",
@@ -420,6 +476,14 @@
         "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/mipmap-xxhdpi/ic_launcher_foreground.png"
     },
     {
+        "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable_logo_store_orcs_stories.png.flat",
+        "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable/logo_store_orcs_stories.png"
+    },
+    {
+        "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable_ic_public_48px.xml.flat",
+        "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable/ic_public_48px.xml"
+    },
+    {
         "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable-xxhdpi_outline_search_white_48.png.flat",
         "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable-xxhdpi/outline_search_white_48.png"
     },
@@ -434,6 +498,10 @@
     {
         "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable-xxhdpi_ic_fav_off.png.flat",
         "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable-xxhdpi/ic_fav_off.png"
+    },
+    {
+        "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable_cirlce_cyan_color.xml.flat",
+        "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable/cirlce_cyan_color.xml"
     },
     {
         "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable-xxhdpi_outline_expand_more_white_48.png.flat",
@@ -452,6 +520,10 @@
         "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable-xhdpi/players_table.png"
     },
     {
+        "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable_outline_share_24.xml.flat",
+        "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable/outline_share_24.xml"
+    },
+    {
         "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable-xhdpi_strong_language.png.flat",
         "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable-xhdpi/strong_language.png"
     },
@@ -464,8 +536,16 @@
         "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable-mdpi/outline_grid_view_white_18.png"
     },
     {
+        "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable_bg_teal_rounded_corners.xml.flat",
+        "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable/bg_teal_rounded_corners.xml"
+    },
+    {
         "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable-xxxhdpi_outline_grid_view_white_24.png.flat",
         "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable-xxxhdpi/outline_grid_view_white_24.png"
+    },
+    {
+        "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable_logo_store_montecassino.png.flat",
+        "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable/logo_store_montecassino.png"
     },
     {
         "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable-hdpi_heavy.png.flat",
@@ -488,6 +568,10 @@
         "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable-hdpi/tiles.png"
     },
     {
+        "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable_logo_store_jugando_ando.png.flat",
+        "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable/logo_store_jugando_ando.png"
+    },
+    {
         "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable-mdpi_medium.png.flat",
         "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable-mdpi/medium.png"
     },
@@ -502,10 +586,6 @@
     {
         "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable-xxxhdpi_tiles.png.flat",
         "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable-xxxhdpi/tiles.png"
-    },
-    {
-        "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/layout_fragment_home.xml.flat",
-        "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/layout/fragment_home.xml"
     },
     {
         "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable-xxhdpi_choking_hazard.png.flat",
@@ -526,6 +606,10 @@
     {
         "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable-xhdpi_medium_heavy.png.flat",
         "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable-xhdpi/medium_heavy.png"
+    },
+    {
+        "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable_logo_store_dragons_hohle.png.flat",
+        "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable/logo_store_dragons_hohle.png"
     },
     {
         "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable-xxxhdpi_interaction.png.flat",
@@ -578,6 +662,10 @@
     {
         "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable-hdpi_baseline_local_fire_department_black_24.png.flat",
         "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable-hdpi/baseline_local_fire_department_black_24.png"
+    },
+    {
+        "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable_image_slider_gradient_2.xml.flat",
+        "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable/image_slider_gradient_2.xml"
     },
     {
         "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable-mdpi_outline_list_white_36.png.flat",
@@ -644,6 +732,10 @@
         "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable-hdpi/outline_list_white_18.png"
     },
     {
+        "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/layout_filter_spinner_item.xml.flat",
+        "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/layout/filter_spinner_item.xml"
+    },
+    {
         "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable-xxxhdpi_outline_grid_view_white_48.png.flat",
         "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable-xxxhdpi/outline_grid_view_white_48.png"
     },
@@ -658,6 +750,10 @@
     {
         "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable-xxxhdpi_baseline_local_fire_department_black_24.png.flat",
         "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable-xxxhdpi/baseline_local_fire_department_black_24.png"
+    },
+    {
+        "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable_logo_store_red_queen.png.flat",
+        "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable/logo_store_red_queen.png"
     },
     {
         "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable-xxhdpi_outline_list_white_36.png.flat",
@@ -678,10 +774,6 @@
     {
         "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable-xhdpi_miniatures.png.flat",
         "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable-xhdpi/miniatures.png"
-    },
-    {
-        "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable-mdpi_login_background_1.jpg.flat",
-        "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable-mdpi/login_background_1.jpg"
     },
     {
         "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/layout_profile_fragment.xml.flat",
@@ -734,6 +826,10 @@
     {
         "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable-hdpi_hourglass.png.flat",
         "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable-hdpi/hourglass.png"
+    },
+    {
+        "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable_logo_store_santuario.jpeg.flat",
+        "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable/logo_store_santuario.jpeg"
     },
     {
         "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable-xhdpi_stopwatch.png.flat",
@@ -808,6 +904,10 @@
         "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable-mdpi/light.png"
     },
     {
+        "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable_outline_favorite_border_24.xml.flat",
+        "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable/outline_favorite_border_24.xml"
+    },
+    {
         "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable_outline_expand_less_24.xml.flat",
         "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable/outline_expand_less_24.xml"
     },
@@ -856,10 +956,6 @@
         "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable-xxhdpi/luck.png"
     },
     {
-        "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable-mdpi_login_background_3.jpg.flat",
-        "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable-mdpi/login_background_3.jpg"
-    },
-    {
         "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable_outline_grid_view_20.xml.flat",
         "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable/outline_grid_view_20.xml"
     },
@@ -890,6 +986,10 @@
     {
         "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable-mdpi_login_background_2.jpg.flat",
         "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable-mdpi/login_background_2.jpg"
+    },
+    {
+        "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable_logo_store_roll_games.png.flat",
+        "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable/logo_store_roll_games.png"
     },
     {
         "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable-mdpi_hourglass.png.flat",
@@ -968,6 +1068,14 @@
         "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable-xhdpi/outline_expand_less_white_48.png"
     },
     {
+        "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable_ic_filter_list_48px.xml.flat",
+        "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable/ic_filter_list_48px.xml"
+    },
+    {
+        "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/layout_fragment_product.xml.flat",
+        "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/layout/fragment_product.xml"
+    },
+    {
         "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable-xxhdpi_cards.png.flat",
         "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable-xxhdpi/cards.png"
     },
@@ -978,6 +1086,10 @@
     {
         "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable-mdpi_knowledge.png.flat",
         "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable-mdpi/knowledge.png"
+    },
+    {
+        "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable_bg_primary_rounded_corners.xml.flat",
+        "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable/bg_primary_rounded_corners.xml"
     },
     {
         "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable-xxhdpi_outline_list_white_24.png.flat",
@@ -1018,5 +1130,9 @@
     {
         "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable-mdpi_miniatures.png.flat",
         "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable-mdpi/miniatures.png"
+    },
+    {
+        "merged": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/res/merged/release/drawable_logo_store_game_dojo.jpeg.flat",
+        "source": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/src/main/res/drawable/logo_store_game_dojo.jpeg"
     }
 ]

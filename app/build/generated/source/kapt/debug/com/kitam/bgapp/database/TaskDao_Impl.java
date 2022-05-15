@@ -16,11 +16,14 @@ import com.kitam.bgapp.data.data.BoardGameTypeConverter;
 import com.kitam.bgapp.data.data.User;
 import com.kitam.bgapp.data.data.UserBoardGameCrossRef;
 import com.kitam.bgapp.data.data.UserFavBoardGames;
+import java.lang.Class;
+import java.lang.Long;
 import java.lang.Override;
 import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 
@@ -38,18 +41,22 @@ public final class TaskDao_Impl implements TaskDao {
 
   private final EntityDeletionOrUpdateAdapter<UserBoardGameCrossRef> __deletionAdapterOfUserBoardGameCrossRef;
 
+  private final SharedSQLiteStatement __preparedStmtOfUpdateLastUpdateTimestamp;
+
   private final SharedSQLiteStatement __preparedStmtOfUpdateHotList;
 
   private final SharedSQLiteStatement __preparedStmtOfUpdateUpcomingList;
 
   private final SharedSQLiteStatement __preparedStmtOfUpdateTopList;
 
+  private final SharedSQLiteStatement __preparedStmtOfUpdateCustomList;
+
   public TaskDao_Impl(RoomDatabase __db) {
     this.__db = __db;
     this.__insertionAdapterOfUser = new EntityInsertionAdapter<User>(__db) {
       @Override
       public String createQuery() {
-        return "INSERT OR REPLACE INTO `user_entity` (`email`,`name`,`phone`,`hotList`,`upcomingList`,`favList`,`topList`) VALUES (?,?,?,?,?,?,?)";
+        return "INSERT OR REPLACE INTO `user_entity` (`email`,`name`,`phone`,`hotList`,`upcomingList`,`favList`,`topList`,`sponsoredList`,`lastUpdate`) VALUES (?,?,?,?,?,?,?,?,?)";
       }
 
       @Override
@@ -69,40 +76,47 @@ public final class TaskDao_Impl implements TaskDao {
         } else {
           stmt.bindString(3, value.getPhone());
         }
-        final String _tmp;
-        _tmp = __boardGameTypeConverter.listToString(value.getHotList());
+        final String _tmp = __boardGameTypeConverter.listToString(value.getHotList());
         if (_tmp == null) {
           stmt.bindNull(4);
         } else {
           stmt.bindString(4, _tmp);
         }
-        final String _tmp_1;
-        _tmp_1 = __boardGameTypeConverter.listToString(value.getUpcomingList());
+        final String _tmp_1 = __boardGameTypeConverter.listToString(value.getUpcomingList());
         if (_tmp_1 == null) {
           stmt.bindNull(5);
         } else {
           stmt.bindString(5, _tmp_1);
         }
-        final String _tmp_2;
-        _tmp_2 = __boardGameTypeConverter.listToString(value.getFavList());
+        final String _tmp_2 = __boardGameTypeConverter.listToString(value.getFavList());
         if (_tmp_2 == null) {
           stmt.bindNull(6);
         } else {
           stmt.bindString(6, _tmp_2);
         }
-        final String _tmp_3;
-        _tmp_3 = __boardGameTypeConverter.listToString(value.getTopList());
+        final String _tmp_3 = __boardGameTypeConverter.listToString(value.getTopList());
         if (_tmp_3 == null) {
           stmt.bindNull(7);
         } else {
           stmt.bindString(7, _tmp_3);
+        }
+        final String _tmp_4 = __boardGameTypeConverter.listToString(value.getSponsoredList());
+        if (_tmp_4 == null) {
+          stmt.bindNull(8);
+        } else {
+          stmt.bindString(8, _tmp_4);
+        }
+        if (value.getLastUpdate() == null) {
+          stmt.bindNull(9);
+        } else {
+          stmt.bindLong(9, value.getLastUpdate());
         }
       }
     };
     this.__insertionAdapterOfBoardGame = new EntityInsertionAdapter<BoardGame>(__db) {
       @Override
       public String createQuery() {
-        return "INSERT OR REPLACE INTO `boardgame_entity` (`id`,`type`,`imageurl`,`name`,`yearpublished`,`description`,`rank`) VALUES (?,?,?,?,?,?,?)";
+        return "INSERT OR REPLACE INTO `boardgame_entity` (`id`,`type`,`imageurl`,`name`,`yearpublished`,`description`,`rank`,`href`) VALUES (?,?,?,?,?,?,?,?)";
       }
 
       @Override
@@ -141,6 +155,11 @@ public final class TaskDao_Impl implements TaskDao {
           stmt.bindNull(7);
         } else {
           stmt.bindString(7, value.getRank());
+        }
+        if (value.getHref() == null) {
+          stmt.bindNull(8);
+        } else {
+          stmt.bindString(8, value.getHref());
         }
       }
     };
@@ -184,6 +203,13 @@ public final class TaskDao_Impl implements TaskDao {
         }
       }
     };
+    this.__preparedStmtOfUpdateLastUpdateTimestamp = new SharedSQLiteStatement(__db) {
+      @Override
+      public String createQuery() {
+        final String _query = "UPDATE user_entity SET lastUpdate = ? WHERE email = ?";
+        return _query;
+      }
+    };
     this.__preparedStmtOfUpdateHotList = new SharedSQLiteStatement(__db) {
       @Override
       public String createQuery() {
@@ -202,6 +228,13 @@ public final class TaskDao_Impl implements TaskDao {
       @Override
       public String createQuery() {
         final String _query = "UPDATE user_entity SET topList = ? WHERE email = ?";
+        return _query;
+      }
+    };
+    this.__preparedStmtOfUpdateCustomList = new SharedSQLiteStatement(__db) {
+      @Override
+      public String createQuery() {
+        final String _query = "UPDATE user_entity SET sponsoredList = ? WHERE email = ?";
         return _query;
       }
     };
@@ -261,12 +294,34 @@ public final class TaskDao_Impl implements TaskDao {
   }
 
   @Override
+  public int updateLastUpdateTimestamp(final String email, final long timestamp) {
+    __db.assertNotSuspendingTransaction();
+    final SupportSQLiteStatement _stmt = __preparedStmtOfUpdateLastUpdateTimestamp.acquire();
+    int _argIndex = 1;
+    _stmt.bindLong(_argIndex, timestamp);
+    _argIndex = 2;
+    if (email == null) {
+      _stmt.bindNull(_argIndex);
+    } else {
+      _stmt.bindString(_argIndex, email);
+    }
+    __db.beginTransaction();
+    try {
+      final int _result = _stmt.executeUpdateDelete();
+      __db.setTransactionSuccessful();
+      return _result;
+    } finally {
+      __db.endTransaction();
+      __preparedStmtOfUpdateLastUpdateTimestamp.release(_stmt);
+    }
+  }
+
+  @Override
   public int updateHotList(final String email, final List<BoardGame> list) {
     __db.assertNotSuspendingTransaction();
     final SupportSQLiteStatement _stmt = __preparedStmtOfUpdateHotList.acquire();
     int _argIndex = 1;
-    final String _tmp;
-    _tmp = __boardGameTypeConverter.listToString(list);
+    final String _tmp = __boardGameTypeConverter.listToString(list);
     if (_tmp == null) {
       _stmt.bindNull(_argIndex);
     } else {
@@ -294,8 +349,7 @@ public final class TaskDao_Impl implements TaskDao {
     __db.assertNotSuspendingTransaction();
     final SupportSQLiteStatement _stmt = __preparedStmtOfUpdateUpcomingList.acquire();
     int _argIndex = 1;
-    final String _tmp;
-    _tmp = __boardGameTypeConverter.listToString(list);
+    final String _tmp = __boardGameTypeConverter.listToString(list);
     if (_tmp == null) {
       _stmt.bindNull(_argIndex);
     } else {
@@ -323,8 +377,7 @@ public final class TaskDao_Impl implements TaskDao {
     __db.assertNotSuspendingTransaction();
     final SupportSQLiteStatement _stmt = __preparedStmtOfUpdateTopList.acquire();
     int _argIndex = 1;
-    final String _tmp;
-    _tmp = __boardGameTypeConverter.listToString(list);
+    final String _tmp = __boardGameTypeConverter.listToString(list);
     if (_tmp == null) {
       _stmt.bindNull(_argIndex);
     } else {
@@ -348,6 +401,34 @@ public final class TaskDao_Impl implements TaskDao {
   }
 
   @Override
+  public int updateCustomList(final String email, final List<BoardGame> list) {
+    __db.assertNotSuspendingTransaction();
+    final SupportSQLiteStatement _stmt = __preparedStmtOfUpdateCustomList.acquire();
+    int _argIndex = 1;
+    final String _tmp = __boardGameTypeConverter.listToString(list);
+    if (_tmp == null) {
+      _stmt.bindNull(_argIndex);
+    } else {
+      _stmt.bindString(_argIndex, _tmp);
+    }
+    _argIndex = 2;
+    if (email == null) {
+      _stmt.bindNull(_argIndex);
+    } else {
+      _stmt.bindString(_argIndex, email);
+    }
+    __db.beginTransaction();
+    try {
+      final int _result = _stmt.executeUpdateDelete();
+      __db.setTransactionSuccessful();
+      return _result;
+    } finally {
+      __db.endTransaction();
+      __preparedStmtOfUpdateCustomList.release(_stmt);
+    }
+  }
+
+  @Override
   public List<User> getAllUsers() {
     final String _sql = "SELECT * FROM user_entity";
     final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 0);
@@ -361,32 +442,76 @@ public final class TaskDao_Impl implements TaskDao {
       final int _cursorIndexOfUpcomingList = CursorUtil.getColumnIndexOrThrow(_cursor, "upcomingList");
       final int _cursorIndexOfFavList = CursorUtil.getColumnIndexOrThrow(_cursor, "favList");
       final int _cursorIndexOfTopList = CursorUtil.getColumnIndexOrThrow(_cursor, "topList");
+      final int _cursorIndexOfSponsoredList = CursorUtil.getColumnIndexOrThrow(_cursor, "sponsoredList");
+      final int _cursorIndexOfLastUpdate = CursorUtil.getColumnIndexOrThrow(_cursor, "lastUpdate");
       final List<User> _result = new ArrayList<User>(_cursor.getCount());
       while(_cursor.moveToNext()) {
         final User _item;
         final String _tmpEmail;
-        _tmpEmail = _cursor.getString(_cursorIndexOfEmail);
+        if (_cursor.isNull(_cursorIndexOfEmail)) {
+          _tmpEmail = null;
+        } else {
+          _tmpEmail = _cursor.getString(_cursorIndexOfEmail);
+        }
         final String _tmpName;
-        _tmpName = _cursor.getString(_cursorIndexOfName);
+        if (_cursor.isNull(_cursorIndexOfName)) {
+          _tmpName = null;
+        } else {
+          _tmpName = _cursor.getString(_cursorIndexOfName);
+        }
         final String _tmpPhone;
-        _tmpPhone = _cursor.getString(_cursorIndexOfPhone);
+        if (_cursor.isNull(_cursorIndexOfPhone)) {
+          _tmpPhone = null;
+        } else {
+          _tmpPhone = _cursor.getString(_cursorIndexOfPhone);
+        }
         final List<BoardGame> _tmpHotList;
         final String _tmp;
-        _tmp = _cursor.getString(_cursorIndexOfHotList);
+        if (_cursor.isNull(_cursorIndexOfHotList)) {
+          _tmp = null;
+        } else {
+          _tmp = _cursor.getString(_cursorIndexOfHotList);
+        }
         _tmpHotList = __boardGameTypeConverter.stringToList(_tmp);
         final List<BoardGame> _tmpUpcomingList;
         final String _tmp_1;
-        _tmp_1 = _cursor.getString(_cursorIndexOfUpcomingList);
+        if (_cursor.isNull(_cursorIndexOfUpcomingList)) {
+          _tmp_1 = null;
+        } else {
+          _tmp_1 = _cursor.getString(_cursorIndexOfUpcomingList);
+        }
         _tmpUpcomingList = __boardGameTypeConverter.stringToList(_tmp_1);
         final List<BoardGame> _tmpFavList;
         final String _tmp_2;
-        _tmp_2 = _cursor.getString(_cursorIndexOfFavList);
+        if (_cursor.isNull(_cursorIndexOfFavList)) {
+          _tmp_2 = null;
+        } else {
+          _tmp_2 = _cursor.getString(_cursorIndexOfFavList);
+        }
         _tmpFavList = __boardGameTypeConverter.stringToList(_tmp_2);
         final List<BoardGame> _tmpTopList;
         final String _tmp_3;
-        _tmp_3 = _cursor.getString(_cursorIndexOfTopList);
+        if (_cursor.isNull(_cursorIndexOfTopList)) {
+          _tmp_3 = null;
+        } else {
+          _tmp_3 = _cursor.getString(_cursorIndexOfTopList);
+        }
         _tmpTopList = __boardGameTypeConverter.stringToList(_tmp_3);
-        _item = new User(_tmpEmail,_tmpName,_tmpPhone,_tmpHotList,_tmpUpcomingList,_tmpFavList,_tmpTopList);
+        final List<BoardGame> _tmpSponsoredList;
+        final String _tmp_4;
+        if (_cursor.isNull(_cursorIndexOfSponsoredList)) {
+          _tmp_4 = null;
+        } else {
+          _tmp_4 = _cursor.getString(_cursorIndexOfSponsoredList);
+        }
+        _tmpSponsoredList = __boardGameTypeConverter.stringToList(_tmp_4);
+        final Long _tmpLastUpdate;
+        if (_cursor.isNull(_cursorIndexOfLastUpdate)) {
+          _tmpLastUpdate = null;
+        } else {
+          _tmpLastUpdate = _cursor.getLong(_cursorIndexOfLastUpdate);
+        }
+        _item = new User(_tmpEmail,_tmpName,_tmpPhone,_tmpHotList,_tmpUpcomingList,_tmpFavList,_tmpTopList,_tmpSponsoredList,_tmpLastUpdate);
         _result.add(_item);
       }
       return _result;
@@ -416,31 +541,75 @@ public final class TaskDao_Impl implements TaskDao {
       final int _cursorIndexOfUpcomingList = CursorUtil.getColumnIndexOrThrow(_cursor, "upcomingList");
       final int _cursorIndexOfFavList = CursorUtil.getColumnIndexOrThrow(_cursor, "favList");
       final int _cursorIndexOfTopList = CursorUtil.getColumnIndexOrThrow(_cursor, "topList");
+      final int _cursorIndexOfSponsoredList = CursorUtil.getColumnIndexOrThrow(_cursor, "sponsoredList");
+      final int _cursorIndexOfLastUpdate = CursorUtil.getColumnIndexOrThrow(_cursor, "lastUpdate");
       final User _result;
       if(_cursor.moveToFirst()) {
         final String _tmpEmail;
-        _tmpEmail = _cursor.getString(_cursorIndexOfEmail);
+        if (_cursor.isNull(_cursorIndexOfEmail)) {
+          _tmpEmail = null;
+        } else {
+          _tmpEmail = _cursor.getString(_cursorIndexOfEmail);
+        }
         final String _tmpName;
-        _tmpName = _cursor.getString(_cursorIndexOfName);
+        if (_cursor.isNull(_cursorIndexOfName)) {
+          _tmpName = null;
+        } else {
+          _tmpName = _cursor.getString(_cursorIndexOfName);
+        }
         final String _tmpPhone;
-        _tmpPhone = _cursor.getString(_cursorIndexOfPhone);
+        if (_cursor.isNull(_cursorIndexOfPhone)) {
+          _tmpPhone = null;
+        } else {
+          _tmpPhone = _cursor.getString(_cursorIndexOfPhone);
+        }
         final List<BoardGame> _tmpHotList;
         final String _tmp;
-        _tmp = _cursor.getString(_cursorIndexOfHotList);
+        if (_cursor.isNull(_cursorIndexOfHotList)) {
+          _tmp = null;
+        } else {
+          _tmp = _cursor.getString(_cursorIndexOfHotList);
+        }
         _tmpHotList = __boardGameTypeConverter.stringToList(_tmp);
         final List<BoardGame> _tmpUpcomingList;
         final String _tmp_1;
-        _tmp_1 = _cursor.getString(_cursorIndexOfUpcomingList);
+        if (_cursor.isNull(_cursorIndexOfUpcomingList)) {
+          _tmp_1 = null;
+        } else {
+          _tmp_1 = _cursor.getString(_cursorIndexOfUpcomingList);
+        }
         _tmpUpcomingList = __boardGameTypeConverter.stringToList(_tmp_1);
         final List<BoardGame> _tmpFavList;
         final String _tmp_2;
-        _tmp_2 = _cursor.getString(_cursorIndexOfFavList);
+        if (_cursor.isNull(_cursorIndexOfFavList)) {
+          _tmp_2 = null;
+        } else {
+          _tmp_2 = _cursor.getString(_cursorIndexOfFavList);
+        }
         _tmpFavList = __boardGameTypeConverter.stringToList(_tmp_2);
         final List<BoardGame> _tmpTopList;
         final String _tmp_3;
-        _tmp_3 = _cursor.getString(_cursorIndexOfTopList);
+        if (_cursor.isNull(_cursorIndexOfTopList)) {
+          _tmp_3 = null;
+        } else {
+          _tmp_3 = _cursor.getString(_cursorIndexOfTopList);
+        }
         _tmpTopList = __boardGameTypeConverter.stringToList(_tmp_3);
-        _result = new User(_tmpEmail,_tmpName,_tmpPhone,_tmpHotList,_tmpUpcomingList,_tmpFavList,_tmpTopList);
+        final List<BoardGame> _tmpSponsoredList;
+        final String _tmp_4;
+        if (_cursor.isNull(_cursorIndexOfSponsoredList)) {
+          _tmp_4 = null;
+        } else {
+          _tmp_4 = _cursor.getString(_cursorIndexOfSponsoredList);
+        }
+        _tmpSponsoredList = __boardGameTypeConverter.stringToList(_tmp_4);
+        final Long _tmpLastUpdate;
+        if (_cursor.isNull(_cursorIndexOfLastUpdate)) {
+          _tmpLastUpdate = null;
+        } else {
+          _tmpLastUpdate = _cursor.getLong(_cursorIndexOfLastUpdate);
+        }
+        _result = new User(_tmpEmail,_tmpName,_tmpPhone,_tmpHotList,_tmpUpcomingList,_tmpFavList,_tmpTopList,_tmpSponsoredList,_tmpLastUpdate);
       } else {
         _result = null;
       }
@@ -465,24 +634,67 @@ public final class TaskDao_Impl implements TaskDao {
       final int _cursorIndexOfYearpublished = CursorUtil.getColumnIndexOrThrow(_cursor, "yearpublished");
       final int _cursorIndexOfDescription = CursorUtil.getColumnIndexOrThrow(_cursor, "description");
       final int _cursorIndexOfRank = CursorUtil.getColumnIndexOrThrow(_cursor, "rank");
+      final int _cursorIndexOfHref = CursorUtil.getColumnIndexOrThrow(_cursor, "href");
       final List<BoardGame> _result = new ArrayList<BoardGame>(_cursor.getCount());
       while(_cursor.moveToNext()) {
         final BoardGame _item;
+        _item = new BoardGame();
         final String _tmpId;
-        _tmpId = _cursor.getString(_cursorIndexOfId);
+        if (_cursor.isNull(_cursorIndexOfId)) {
+          _tmpId = null;
+        } else {
+          _tmpId = _cursor.getString(_cursorIndexOfId);
+        }
+        _item.setId(_tmpId);
         final String _tmpType;
-        _tmpType = _cursor.getString(_cursorIndexOfType);
+        if (_cursor.isNull(_cursorIndexOfType)) {
+          _tmpType = null;
+        } else {
+          _tmpType = _cursor.getString(_cursorIndexOfType);
+        }
+        _item.setType(_tmpType);
         final String _tmpImageurl;
-        _tmpImageurl = _cursor.getString(_cursorIndexOfImageurl);
+        if (_cursor.isNull(_cursorIndexOfImageurl)) {
+          _tmpImageurl = null;
+        } else {
+          _tmpImageurl = _cursor.getString(_cursorIndexOfImageurl);
+        }
+        _item.setImageurl(_tmpImageurl);
         final String _tmpName;
-        _tmpName = _cursor.getString(_cursorIndexOfName);
+        if (_cursor.isNull(_cursorIndexOfName)) {
+          _tmpName = null;
+        } else {
+          _tmpName = _cursor.getString(_cursorIndexOfName);
+        }
+        _item.setName(_tmpName);
         final String _tmpYearpublished;
-        _tmpYearpublished = _cursor.getString(_cursorIndexOfYearpublished);
+        if (_cursor.isNull(_cursorIndexOfYearpublished)) {
+          _tmpYearpublished = null;
+        } else {
+          _tmpYearpublished = _cursor.getString(_cursorIndexOfYearpublished);
+        }
+        _item.setYearpublished(_tmpYearpublished);
         final String _tmpDescription;
-        _tmpDescription = _cursor.getString(_cursorIndexOfDescription);
+        if (_cursor.isNull(_cursorIndexOfDescription)) {
+          _tmpDescription = null;
+        } else {
+          _tmpDescription = _cursor.getString(_cursorIndexOfDescription);
+        }
+        _item.setDescription(_tmpDescription);
         final String _tmpRank;
-        _tmpRank = _cursor.getString(_cursorIndexOfRank);
-        _item = new BoardGame(_tmpId,_tmpType,_tmpImageurl,_tmpName,_tmpYearpublished,_tmpDescription,_tmpRank);
+        if (_cursor.isNull(_cursorIndexOfRank)) {
+          _tmpRank = null;
+        } else {
+          _tmpRank = _cursor.getString(_cursorIndexOfRank);
+        }
+        _item.setRank(_tmpRank);
+        final String _tmpHref;
+        if (_cursor.isNull(_cursorIndexOfHref)) {
+          _tmpHref = null;
+        } else {
+          _tmpHref = _cursor.getString(_cursorIndexOfHref);
+        }
+        _item.setHref(_tmpHref);
         _result.add(_item);
       }
       return _result;
@@ -512,23 +724,66 @@ public final class TaskDao_Impl implements TaskDao {
       final int _cursorIndexOfYearpublished = CursorUtil.getColumnIndexOrThrow(_cursor, "yearpublished");
       final int _cursorIndexOfDescription = CursorUtil.getColumnIndexOrThrow(_cursor, "description");
       final int _cursorIndexOfRank = CursorUtil.getColumnIndexOrThrow(_cursor, "rank");
+      final int _cursorIndexOfHref = CursorUtil.getColumnIndexOrThrow(_cursor, "href");
       final BoardGame _result;
       if(_cursor.moveToFirst()) {
+        _result = new BoardGame();
         final String _tmpId;
-        _tmpId = _cursor.getString(_cursorIndexOfId);
+        if (_cursor.isNull(_cursorIndexOfId)) {
+          _tmpId = null;
+        } else {
+          _tmpId = _cursor.getString(_cursorIndexOfId);
+        }
+        _result.setId(_tmpId);
         final String _tmpType;
-        _tmpType = _cursor.getString(_cursorIndexOfType);
+        if (_cursor.isNull(_cursorIndexOfType)) {
+          _tmpType = null;
+        } else {
+          _tmpType = _cursor.getString(_cursorIndexOfType);
+        }
+        _result.setType(_tmpType);
         final String _tmpImageurl;
-        _tmpImageurl = _cursor.getString(_cursorIndexOfImageurl);
+        if (_cursor.isNull(_cursorIndexOfImageurl)) {
+          _tmpImageurl = null;
+        } else {
+          _tmpImageurl = _cursor.getString(_cursorIndexOfImageurl);
+        }
+        _result.setImageurl(_tmpImageurl);
         final String _tmpName;
-        _tmpName = _cursor.getString(_cursorIndexOfName);
+        if (_cursor.isNull(_cursorIndexOfName)) {
+          _tmpName = null;
+        } else {
+          _tmpName = _cursor.getString(_cursorIndexOfName);
+        }
+        _result.setName(_tmpName);
         final String _tmpYearpublished;
-        _tmpYearpublished = _cursor.getString(_cursorIndexOfYearpublished);
+        if (_cursor.isNull(_cursorIndexOfYearpublished)) {
+          _tmpYearpublished = null;
+        } else {
+          _tmpYearpublished = _cursor.getString(_cursorIndexOfYearpublished);
+        }
+        _result.setYearpublished(_tmpYearpublished);
         final String _tmpDescription;
-        _tmpDescription = _cursor.getString(_cursorIndexOfDescription);
+        if (_cursor.isNull(_cursorIndexOfDescription)) {
+          _tmpDescription = null;
+        } else {
+          _tmpDescription = _cursor.getString(_cursorIndexOfDescription);
+        }
+        _result.setDescription(_tmpDescription);
         final String _tmpRank;
-        _tmpRank = _cursor.getString(_cursorIndexOfRank);
-        _result = new BoardGame(_tmpId,_tmpType,_tmpImageurl,_tmpName,_tmpYearpublished,_tmpDescription,_tmpRank);
+        if (_cursor.isNull(_cursorIndexOfRank)) {
+          _tmpRank = null;
+        } else {
+          _tmpRank = _cursor.getString(_cursorIndexOfRank);
+        }
+        _result.setRank(_tmpRank);
+        final String _tmpHref;
+        if (_cursor.isNull(_cursorIndexOfHref)) {
+          _tmpHref = null;
+        } else {
+          _tmpHref = _cursor.getString(_cursorIndexOfHref);
+        }
+        _result.setHref(_tmpHref);
       } else {
         _result = null;
       }
@@ -561,6 +816,8 @@ public final class TaskDao_Impl implements TaskDao {
         final int _cursorIndexOfUpcomingList = CursorUtil.getColumnIndexOrThrow(_cursor, "upcomingList");
         final int _cursorIndexOfFavList = CursorUtil.getColumnIndexOrThrow(_cursor, "favList");
         final int _cursorIndexOfTopList = CursorUtil.getColumnIndexOrThrow(_cursor, "topList");
+        final int _cursorIndexOfSponsoredList = CursorUtil.getColumnIndexOrThrow(_cursor, "sponsoredList");
+        final int _cursorIndexOfLastUpdate = CursorUtil.getColumnIndexOrThrow(_cursor, "lastUpdate");
         final ArrayMap<String, ArrayList<BoardGame>> _collectionBoardGames = new ArrayMap<String, ArrayList<BoardGame>>();
         while (_cursor.moveToNext()) {
           final String _tmpKey = _cursor.getString(_cursorIndexOfEmail);
@@ -576,30 +833,72 @@ public final class TaskDao_Impl implements TaskDao {
         while(_cursor.moveToNext()) {
           final UserFavBoardGames _item;
           final User _tmpUser;
-          if (! (_cursor.isNull(_cursorIndexOfEmail) && _cursor.isNull(_cursorIndexOfName) && _cursor.isNull(_cursorIndexOfPhone) && _cursor.isNull(_cursorIndexOfHotList) && _cursor.isNull(_cursorIndexOfUpcomingList) && _cursor.isNull(_cursorIndexOfFavList) && _cursor.isNull(_cursorIndexOfTopList))) {
+          if (! (_cursor.isNull(_cursorIndexOfEmail) && _cursor.isNull(_cursorIndexOfName) && _cursor.isNull(_cursorIndexOfPhone) && _cursor.isNull(_cursorIndexOfHotList) && _cursor.isNull(_cursorIndexOfUpcomingList) && _cursor.isNull(_cursorIndexOfFavList) && _cursor.isNull(_cursorIndexOfTopList) && _cursor.isNull(_cursorIndexOfSponsoredList) && _cursor.isNull(_cursorIndexOfLastUpdate))) {
             final String _tmpEmail;
-            _tmpEmail = _cursor.getString(_cursorIndexOfEmail);
+            if (_cursor.isNull(_cursorIndexOfEmail)) {
+              _tmpEmail = null;
+            } else {
+              _tmpEmail = _cursor.getString(_cursorIndexOfEmail);
+            }
             final String _tmpName;
-            _tmpName = _cursor.getString(_cursorIndexOfName);
+            if (_cursor.isNull(_cursorIndexOfName)) {
+              _tmpName = null;
+            } else {
+              _tmpName = _cursor.getString(_cursorIndexOfName);
+            }
             final String _tmpPhone;
-            _tmpPhone = _cursor.getString(_cursorIndexOfPhone);
+            if (_cursor.isNull(_cursorIndexOfPhone)) {
+              _tmpPhone = null;
+            } else {
+              _tmpPhone = _cursor.getString(_cursorIndexOfPhone);
+            }
             final List<BoardGame> _tmpHotList;
             final String _tmp;
-            _tmp = _cursor.getString(_cursorIndexOfHotList);
+            if (_cursor.isNull(_cursorIndexOfHotList)) {
+              _tmp = null;
+            } else {
+              _tmp = _cursor.getString(_cursorIndexOfHotList);
+            }
             _tmpHotList = __boardGameTypeConverter.stringToList(_tmp);
             final List<BoardGame> _tmpUpcomingList;
             final String _tmp_1;
-            _tmp_1 = _cursor.getString(_cursorIndexOfUpcomingList);
+            if (_cursor.isNull(_cursorIndexOfUpcomingList)) {
+              _tmp_1 = null;
+            } else {
+              _tmp_1 = _cursor.getString(_cursorIndexOfUpcomingList);
+            }
             _tmpUpcomingList = __boardGameTypeConverter.stringToList(_tmp_1);
             final List<BoardGame> _tmpFavList;
             final String _tmp_2;
-            _tmp_2 = _cursor.getString(_cursorIndexOfFavList);
+            if (_cursor.isNull(_cursorIndexOfFavList)) {
+              _tmp_2 = null;
+            } else {
+              _tmp_2 = _cursor.getString(_cursorIndexOfFavList);
+            }
             _tmpFavList = __boardGameTypeConverter.stringToList(_tmp_2);
             final List<BoardGame> _tmpTopList;
             final String _tmp_3;
-            _tmp_3 = _cursor.getString(_cursorIndexOfTopList);
+            if (_cursor.isNull(_cursorIndexOfTopList)) {
+              _tmp_3 = null;
+            } else {
+              _tmp_3 = _cursor.getString(_cursorIndexOfTopList);
+            }
             _tmpTopList = __boardGameTypeConverter.stringToList(_tmp_3);
-            _tmpUser = new User(_tmpEmail,_tmpName,_tmpPhone,_tmpHotList,_tmpUpcomingList,_tmpFavList,_tmpTopList);
+            final List<BoardGame> _tmpSponsoredList;
+            final String _tmp_4;
+            if (_cursor.isNull(_cursorIndexOfSponsoredList)) {
+              _tmp_4 = null;
+            } else {
+              _tmp_4 = _cursor.getString(_cursorIndexOfSponsoredList);
+            }
+            _tmpSponsoredList = __boardGameTypeConverter.stringToList(_tmp_4);
+            final Long _tmpLastUpdate;
+            if (_cursor.isNull(_cursorIndexOfLastUpdate)) {
+              _tmpLastUpdate = null;
+            } else {
+              _tmpLastUpdate = _cursor.getLong(_cursorIndexOfLastUpdate);
+            }
+            _tmpUser = new User(_tmpEmail,_tmpName,_tmpPhone,_tmpHotList,_tmpUpcomingList,_tmpFavList,_tmpTopList,_tmpSponsoredList,_tmpLastUpdate);
           }  else  {
             _tmpUser = null;
           }
@@ -621,6 +920,10 @@ public final class TaskDao_Impl implements TaskDao {
     } finally {
       __db.endTransaction();
     }
+  }
+
+  public static List<Class<?>> getRequiredConverters() {
+    return Collections.emptyList();
   }
 
   private void __fetchRelationshipboardgameEntityAscomKitamBgappDataDataBoardGame(
@@ -651,7 +954,7 @@ public final class TaskDao_Impl implements TaskDao {
       return;
     }
     StringBuilder _stringBuilder = StringUtil.newStringBuilder();
-    _stringBuilder.append("SELECT `boardgame_entity`.`id` AS `id`,`boardgame_entity`.`type` AS `type`,`boardgame_entity`.`imageurl` AS `imageurl`,`boardgame_entity`.`name` AS `name`,`boardgame_entity`.`yearpublished` AS `yearpublished`,`boardgame_entity`.`description` AS `description`,`boardgame_entity`.`rank` AS `rank`,_junction.`email` FROM `UserBoardGameCrossRef` AS _junction INNER JOIN `boardgame_entity` ON (_junction.`id` = `boardgame_entity`.`id`) WHERE _junction.`email` IN (");
+    _stringBuilder.append("SELECT `boardgame_entity`.`id` AS `id`,`boardgame_entity`.`type` AS `type`,`boardgame_entity`.`imageurl` AS `imageurl`,`boardgame_entity`.`name` AS `name`,`boardgame_entity`.`yearpublished` AS `yearpublished`,`boardgame_entity`.`description` AS `description`,`boardgame_entity`.`rank` AS `rank`,`boardgame_entity`.`href` AS `href`,_junction.`email` FROM `UserBoardGameCrossRef` AS _junction INNER JOIN `boardgame_entity` ON (_junction.`id` = `boardgame_entity`.`id`) WHERE _junction.`email` IN (");
     final int _inputSize = __mapKeySet.size();
     StringUtil.appendPlaceholders(_stringBuilder, _inputSize);
     _stringBuilder.append(")");
@@ -669,65 +972,80 @@ public final class TaskDao_Impl implements TaskDao {
     }
     final Cursor _cursor = DBUtil.query(__db, _stmt, false, null);
     try {
-      final int _itemKeyIndex = 7; // _junction.email;
+      final int _itemKeyIndex = 8; // _junction.email;
       if (_itemKeyIndex == -1) {
         return;
       }
-      final int _cursorIndexOfId = CursorUtil.getColumnIndex(_cursor, "id");
-      final int _cursorIndexOfType = CursorUtil.getColumnIndex(_cursor, "type");
-      final int _cursorIndexOfImageurl = CursorUtil.getColumnIndex(_cursor, "imageurl");
-      final int _cursorIndexOfName = CursorUtil.getColumnIndex(_cursor, "name");
-      final int _cursorIndexOfYearpublished = CursorUtil.getColumnIndex(_cursor, "yearpublished");
-      final int _cursorIndexOfDescription = CursorUtil.getColumnIndex(_cursor, "description");
-      final int _cursorIndexOfRank = CursorUtil.getColumnIndex(_cursor, "rank");
+      final int _cursorIndexOfId = 0;
+      final int _cursorIndexOfType = 1;
+      final int _cursorIndexOfImageurl = 2;
+      final int _cursorIndexOfName = 3;
+      final int _cursorIndexOfYearpublished = 4;
+      final int _cursorIndexOfDescription = 5;
+      final int _cursorIndexOfRank = 6;
+      final int _cursorIndexOfHref = 7;
       while(_cursor.moveToNext()) {
         final String _tmpKey = _cursor.getString(_itemKeyIndex);
         ArrayList<BoardGame> _tmpRelation = _map.get(_tmpKey);
         if (_tmpRelation != null) {
           final BoardGame _item_1;
+          _item_1 = new BoardGame();
           final String _tmpId;
-          if (_cursorIndexOfId == -1) {
+          if (_cursor.isNull(_cursorIndexOfId)) {
             _tmpId = null;
           } else {
             _tmpId = _cursor.getString(_cursorIndexOfId);
           }
+          _item_1.setId(_tmpId);
           final String _tmpType;
-          if (_cursorIndexOfType == -1) {
+          if (_cursor.isNull(_cursorIndexOfType)) {
             _tmpType = null;
           } else {
             _tmpType = _cursor.getString(_cursorIndexOfType);
           }
+          _item_1.setType(_tmpType);
           final String _tmpImageurl;
-          if (_cursorIndexOfImageurl == -1) {
+          if (_cursor.isNull(_cursorIndexOfImageurl)) {
             _tmpImageurl = null;
           } else {
             _tmpImageurl = _cursor.getString(_cursorIndexOfImageurl);
           }
+          _item_1.setImageurl(_tmpImageurl);
           final String _tmpName;
-          if (_cursorIndexOfName == -1) {
+          if (_cursor.isNull(_cursorIndexOfName)) {
             _tmpName = null;
           } else {
             _tmpName = _cursor.getString(_cursorIndexOfName);
           }
+          _item_1.setName(_tmpName);
           final String _tmpYearpublished;
-          if (_cursorIndexOfYearpublished == -1) {
+          if (_cursor.isNull(_cursorIndexOfYearpublished)) {
             _tmpYearpublished = null;
           } else {
             _tmpYearpublished = _cursor.getString(_cursorIndexOfYearpublished);
           }
+          _item_1.setYearpublished(_tmpYearpublished);
           final String _tmpDescription;
-          if (_cursorIndexOfDescription == -1) {
+          if (_cursor.isNull(_cursorIndexOfDescription)) {
             _tmpDescription = null;
           } else {
             _tmpDescription = _cursor.getString(_cursorIndexOfDescription);
           }
+          _item_1.setDescription(_tmpDescription);
           final String _tmpRank;
-          if (_cursorIndexOfRank == -1) {
+          if (_cursor.isNull(_cursorIndexOfRank)) {
             _tmpRank = null;
           } else {
             _tmpRank = _cursor.getString(_cursorIndexOfRank);
           }
-          _item_1 = new BoardGame(_tmpId,_tmpType,_tmpImageurl,_tmpName,_tmpYearpublished,_tmpDescription,_tmpRank);
+          _item_1.setRank(_tmpRank);
+          final String _tmpHref;
+          if (_cursor.isNull(_cursorIndexOfHref)) {
+            _tmpHref = null;
+          } else {
+            _tmpHref = _cursor.getString(_cursorIndexOfHref);
+          }
+          _item_1.setHref(_tmpHref);
           _tmpRelation.add(_item_1);
         }
       }

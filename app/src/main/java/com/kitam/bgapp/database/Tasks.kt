@@ -3,8 +3,7 @@ package com.kitam.bgapp.database
 import androidx.room.*
 import com.kitam.bgapp.data.data.*
 import androidx.room.OnConflictStrategy
-
-
+import java.sql.Timestamp
 
 
 @Dao
@@ -18,6 +17,9 @@ interface TaskDao {
     @Query("SELECT * FROM user_entity where email = :email")
     fun getUserByEmail(email: String): User
 
+    @Query("UPDATE user_entity SET lastUpdate = :timestamp WHERE email = :email")
+    fun updateLastUpdateTimestamp(email: String, timestamp: Long):Int
+
     @Query("UPDATE user_entity SET hotList = :list WHERE email = :email")
     fun updateHotList(email: String, list: List<BoardGame>):Int
 
@@ -26,6 +28,9 @@ interface TaskDao {
 
     @Query("UPDATE user_entity SET topList = :list WHERE email = :email")
     fun updateTopList(email: String, list: List<BoardGame>):Int
+
+    @Query("UPDATE user_entity SET sponsoredList = :list WHERE email = :email")
+    fun updateCustomList(email: String, list: List<BoardGame>):Int
 
     @Query("SELECT * FROM boardgame_entity")
     fun getAllGames(): MutableList<BoardGame>

@@ -41,7 +41,6 @@ class LoginActivity : AppCompatActivity() {
     // Choose authentication providers
     val providers = arrayListOf(
         AuthUI.IdpConfig.EmailBuilder().build(),
-        AuthUI.IdpConfig.FacebookBuilder().build(),
         AuthUI.IdpConfig.GoogleBuilder().build())
 
     // Create and launch sign-in intent
@@ -69,7 +68,7 @@ class LoginActivity : AppCompatActivity() {
 
         when (rnds) {
             1 -> binding.background?.let {
-                Glide.with(this).load(resources.getDrawable(R.drawable.login_background_1,theme)).transition(DrawableTransitionOptions.withCrossFade()).into(
+                Glide.with(this).load(resources.getDrawable(R.drawable.login_background_2,theme)).transition(DrawableTransitionOptions.withCrossFade()).into(
                     it
                 )
             }
@@ -80,7 +79,7 @@ class LoginActivity : AppCompatActivity() {
             }
 
             3 -> binding.background?.let {
-                Glide.with(this).load(resources.getDrawable(R.drawable.login_background_5,theme)).transition(DrawableTransitionOptions.withCrossFade()).into(
+                Glide.with(this).load(resources.getDrawable(R.drawable.login_background_2,theme)).transition(DrawableTransitionOptions.withCrossFade()).into(
                     it
                 )
             }
@@ -161,16 +160,20 @@ class LoginActivity : AppCompatActivity() {
 
         }
 
+        val currentUser = FirebaseAuth.getInstance().currentUser
+        if(currentUser != null){
+            goToMainActivity()
+        }
+
 
     }
 
     override fun onStart() {
         super.onStart()
-        val currentUser = FirebaseAuth.getInstance().currentUser
-        if(currentUser != null){
-            goToMainActivity()
-        }
+
     }
+
+
 
     private fun updateUiWithUser(model: LoggedInUserView) {
         val welcome = getString(R.string.welcome)
@@ -204,7 +207,7 @@ class LoginActivity : AppCompatActivity() {
                 lifecycle.coroutineScope.launch {
                     withContext(Dispatchers.IO) {
 
-                        BGToolBeltApp.database.taskDao().insertUser(User(currentUser.email!!, currentUser.displayName, currentUser.phoneNumber, emptyList(), emptyList(), emptyList(), emptyList()))
+                        BGToolBeltApp.database.taskDao().insertUser(User(currentUser.email!!, currentUser.displayName, currentUser.phoneNumber, emptyList(), emptyList(), emptyList(), emptyList(),  emptyList(), null))
                         goToMainActivity();
 
                     }

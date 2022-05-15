@@ -4,11 +4,11 @@ package com.kitam.bgapp.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ProgressBar;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewbinding.ViewBinding;
+import com.comix.overwatch.HiveProgressView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.kitam.bgapp.R;
 import java.lang.NullPointerException;
@@ -23,13 +23,13 @@ public final class ActivityMainBinding implements ViewBinding {
   public final ConstraintLayout container;
 
   @NonNull
-  public final ProgressBar loading;
+  public final HiveProgressView loading;
 
   @NonNull
   public final BottomNavigationView navView;
 
   private ActivityMainBinding(@NonNull ConstraintLayout rootView,
-      @NonNull ConstraintLayout container, @NonNull ProgressBar loading,
+      @NonNull ConstraintLayout container, @NonNull HiveProgressView loading,
       @NonNull BottomNavigationView navView) {
     this.rootView = rootView;
     this.container = container;
@@ -67,7 +67,7 @@ public final class ActivityMainBinding implements ViewBinding {
       ConstraintLayout container = (ConstraintLayout) rootView;
 
       id = R.id.loading;
-      ProgressBar loading = rootView.findViewById(id);
+      HiveProgressView loading = rootView.findViewById(id);
       if (loading == null) {
         break missingId;
       }

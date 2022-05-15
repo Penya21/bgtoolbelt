@@ -17,6 +17,8 @@
             android:layout_height="0dp"
             android:adjustViewBounds="true"
             android:scaleType="centerCrop"
+            android:foreground="@color/transparent_black"
+            android:foregroundTintMode="src_atop"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -24,11 +26,12 @@
 
         <ImageView
             android:id="@+id/ivFav"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:background="@drawable/circle_gray_color"
-            android:src="@drawable/ic_fav_off"
+            android:src="@drawable/outline_favorite_border_24"
             android:padding="8dp"
+            app:tint="@color/white"
             android:layout_margin="5dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -107,7 +110,7 @@
             android:visibility="visible"
             android:textColor="@color/white"
             android:maxLines="1"
-            android:background="@color/design_default_color_secondary"
+            android:background="@color/red_700"
             android:layout_alignParentTop="true"
             android:layout_toRightOf="@+id/ivImage"
             android:layout_toEndOf="@+id/ivImage"

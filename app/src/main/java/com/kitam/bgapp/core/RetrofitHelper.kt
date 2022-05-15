@@ -49,7 +49,7 @@ object RetrofitHelper {
             .build()
         return Retrofit.Builder()
             .client(okHttpClient)
-            .baseUrl("https://5g4x4fgwzg.execute-api.us-east-2.amazonaws.com/api/")
+            .baseUrl("https://xdbu5izwwj.execute-api.us-east-2.amazonaws.com/v1/")
             .addConverterFactory(
                 GsonConverterFactory.create()
             )

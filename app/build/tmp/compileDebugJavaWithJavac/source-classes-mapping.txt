@@ -1,3 +1,5 @@
+com/kitam/bgapp/databinding/ItemHotGridAdBinding.java
+ com.kitam.bgapp.databinding.ItemHotGridAdBinding
 com/kitam/bgapp/database/TaskDao_Impl.java
  com.kitam.bgapp.database.TaskDao_Impl
  com.kitam.bgapp.database.TaskDao_Impl$1
@@ -7,56 +9,68 @@ com/kitam/bgapp/database/TaskDao_Impl.java
  com.kitam.bgapp.database.TaskDao_Impl$5
  com.kitam.bgapp.database.TaskDao_Impl$6
  com.kitam.bgapp.database.TaskDao_Impl$7
+ com.kitam.bgapp.database.TaskDao_Impl$8
+ com.kitam.bgapp.database.TaskDao_Impl$9
 com/kitam/bgapp/databinding/ActivityMainBinding.java
  com.kitam.bgapp.databinding.ActivityMainBinding
+com/kitam/bgapp/databinding/FragmentProductBinding.java
+ com.kitam.bgapp.databinding.FragmentProductBinding
+com/kitam/bgapp/databinding/FragmentProductListBinding.java
+ com.kitam.bgapp.databinding.FragmentProductListBinding
+com/kitam/bgapp/databinding/FragmentBoardgameDetailAltBindingImpl.java
+ com.kitam.bgapp.databinding.FragmentBoardgameDetailAltBindingImpl
 androidx/databinding/DataBinderMapperImpl.java
  androidx.databinding.DataBinderMapperImpl
-com/kitam/bgapp/databinding/FragmentHotBindingImpl.java
- com.kitam.bgapp.databinding.FragmentHotBindingImpl
 com/kitam/bgapp/databinding/FragmentSearchListBinding.java
  com.kitam.bgapp.databinding.FragmentSearchListBinding
 androidx/databinding/library/baseAdapters/BR.java
  androidx.databinding.library.baseAdapters.BR
 com/kitam/bgapp/databinding/ItemFavoriteBinding.java
  com.kitam.bgapp.databinding.ItemFavoriteBinding
-com/kitam/bgapp/databinding/FragmentHomeAltBinding.java
- com.kitam.bgapp.databinding.FragmentHomeAltBinding
+com/kitam/bgapp/databinding/FragmentBoardgameDetailBindingImpl.java
+ com.kitam.bgapp.databinding.FragmentBoardgameDetailBindingImpl
 com/kitam/bgapp/databinding/ItemHotListBinding.java
  com.kitam.bgapp.databinding.ItemHotListBinding
 com/kitam/bgapp/BuildConfig.java
  com.kitam.bgapp.BuildConfig
 com/kitam/bgapp/DataBindingTriggerClass.java
  com.kitam.bgapp.DataBindingTriggerClass
-com/kitam/bgapp/databinding/FragmentHomeAltBindingImpl.java
- com.kitam.bgapp.databinding.FragmentHomeAltBindingImpl
+com/kitam/bgapp/databinding/FragmentBoardgameDetailAltBinding.java
+ com.kitam.bgapp.databinding.FragmentBoardgameDetailAltBinding
+com/kitam/bgapp/databinding/ActivityZoomImageBinding.java
+ com.kitam.bgapp.databinding.ActivityZoomImageBinding
+com/kitam/bgapp/databinding/FilterSpinnerItemBinding.java
+ com.kitam.bgapp.databinding.FilterSpinnerItemBinding
 com/kitam/bgapp/DataBinderMapperImpl.java
  com.kitam.bgapp.DataBinderMapperImpl
  com.kitam.bgapp.DataBinderMapperImpl$InnerBrLookup
  com.kitam.bgapp.DataBinderMapperImpl$InnerLayoutIdLookup
-com/kitam/bgapp/databinding/FragmentHomeBindingImpl.java
- com.kitam.bgapp.databinding.FragmentHomeBindingImpl
 com/kitam/bgapp/databinding/FragmentNotificationsBinding.java
  com.kitam.bgapp.databinding.FragmentNotificationsBinding
 com/kitam/bgapp/databinding/FragmentDashboardBinding.java
  com.kitam.bgapp.databinding.FragmentDashboardBinding
-androidx/databinding/DataBindingComponent.java
- androidx.databinding.DataBindingComponent
+com/kitam/bgapp/database/TaskDatabase_Impl.java
+ com.kitam.bgapp.database.TaskDatabase_Impl
+ com.kitam.bgapp.database.TaskDatabase_Impl$1
+com/kitam/bgapp/databinding/FragmentSearchListBindingImpl.java
+ com.kitam.bgapp.databinding.FragmentSearchListBindingImpl
 com/kitam/bgapp/databinding/FragmentSearchBinding.java
  com.kitam.bgapp.databinding.FragmentSearchBinding
 com/kitam/bgapp/databinding/FragmentHotBinding.java
  com.kitam.bgapp.databinding.FragmentHotBinding
-com/kitam/bgapp/databinding/FragmentHomeBinding.java
- com.kitam.bgapp.databinding.FragmentHomeBinding
-com/kitam/bgapp/databinding/ProfileFragmentBinding.java
- com.kitam.bgapp.databinding.ProfileFragmentBinding
+com/kitam/bgapp/databinding/FragmentBoardgameDetailBinding.java
+ com.kitam.bgapp.databinding.FragmentBoardgameDetailBinding
+com/kitam/bgapp/SplashActivity.java
+ com.kitam.bgapp.SplashActivity
 com/kitam/bgapp/databinding/ItemHotGridBinding.java
  com.kitam.bgapp.databinding.ItemHotGridBinding
 com/kitam/bgapp/BR.java
  com.kitam.bgapp.BR
+com/kitam/bgapp/database/TaskDatabase_AutoMigration_12_13_Impl.java
+ com.kitam.bgapp.database.TaskDatabase_AutoMigration_12_13_Impl
 com/kitam/bgapp/databinding/ActivityLoginBinding.java
  com.kitam.bgapp.databinding.ActivityLoginBinding
-com/kitam/bgapp/SplashActivity.java
- com.kitam.bgapp.SplashActivity
-com/kitam/bgapp/database/TaskDatabase_Impl.java
- com.kitam.bgapp.database.TaskDatabase_Impl
- com.kitam.bgapp.database.TaskDatabase_Impl$1
+androidx/databinding/DataBindingComponent.java
+ androidx.databinding.DataBindingComponent
+com/kitam/bgapp/databinding/ProfileFragmentBinding.java
+ com.kitam.bgapp.databinding.ProfileFragmentBinding

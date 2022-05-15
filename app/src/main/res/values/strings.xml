@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">BGApp</string>
+    <string name="app_name">BG Hunter</string>
     <string name="title_home">Home</string>
     <string name="title_hot">Tiendas</string>
     <string name="title_stores">Tiendas</string>
@@ -16,5 +16,28 @@
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
     <string name="title_profile">Perfil</string>
-    <string name="facebook_application_id">1646710852338933</string> <string name="fb_login_protocol_scheme">fb1646710852338933</string>
+    <string name="rate_app_title">Calificar App</string>
+    <string name="rate_app_message">Si la app te ha sido útil, por favor califícanos en la PlayStore, tus comentarios nos ayudan mucho. Gracias por usar BG Hunter</string>
+    <string name="rate_btn_pos">Calificar Ahora</string>
+    <string name="rate_btn_neg">Recordarme Más Tarde</string>
+    <string name="rate_btn_nut">No, Gracias</string>
+
+    <string name="facebook_application_id">1646710852338933</string>
+    <string name="fb_login_protocol_scheme">fb1646710852338933</string>
+    <string name="maps_api_key">AIzaSyB-nphUm4hThpumviogOhafCv1N1DVu1k8</string>
+    <string name="content_description_imagen">Imagen</string>
+    <string name="cd_remover_favorito">Remover Favorito</string>
+    <string name="cd_compartir">Compartir</string>
+    <string name="cd_tipo_lista">Tipo de Lista</string>
+    <string name="cd_bot_n_populares">Botón Populares</string>
+    <string name="cd_bot_n_estrenos">Botón Estrenos</string>
+    <string name="cd_bot_n_top_100">Botón Top 100</string>
+    <string name="cd_bot_n_detalle">Botón Detalle</string>
+    <string name="cd_bot_n_tiendas">Botón Tiendas</string>
+    <string name="comienza_a_buscar_en_las_tiendas_cercanas_a_ti">Comienza a buscar en las tiendas cercanas a ti.</string>
+    <string name="title_activity_zoom_image">ZoomImageActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+
+
 </resources>

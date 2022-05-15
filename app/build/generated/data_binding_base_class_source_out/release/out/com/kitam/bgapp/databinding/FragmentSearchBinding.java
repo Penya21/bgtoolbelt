@@ -4,10 +4,11 @@ package com.kitam.bgapp.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.viewbinding.ViewBinding;
 import com.kitam.bgapp.R;
 import java.lang.NullPointerException;
@@ -16,7 +17,7 @@ import java.lang.String;
 
 public final class FragmentSearchBinding implements ViewBinding {
   @NonNull
-  private final LinearLayout rootView;
+  private final CardView rootView;
 
   @NonNull
   public final TextView content;
@@ -24,16 +25,24 @@ public final class FragmentSearchBinding implements ViewBinding {
   @NonNull
   public final TextView itemNumber;
 
-  private FragmentSearchBinding(@NonNull LinearLayout rootView, @NonNull TextView content,
-      @NonNull TextView itemNumber) {
+  @NonNull
+  public final ImageView logo;
+
+  @NonNull
+  public final TextView website;
+
+  private FragmentSearchBinding(@NonNull CardView rootView, @NonNull TextView content,
+      @NonNull TextView itemNumber, @NonNull ImageView logo, @NonNull TextView website) {
     this.rootView = rootView;
     this.content = content;
     this.itemNumber = itemNumber;
+    this.logo = logo;
+    this.website = website;
   }
 
   @Override
   @NonNull
-  public LinearLayout getRoot() {
+  public CardView getRoot() {
     return rootView;
   }
 
@@ -70,7 +79,19 @@ public final class FragmentSearchBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentSearchBinding((LinearLayout) rootView, content, itemNumber);
+      id = R.id.logo;
+      ImageView logo = rootView.findViewById(id);
+      if (logo == null) {
+        break missingId;
+      }
+
+      id = R.id.website;
+      TextView website = rootView.findViewById(id);
+      if (website == null) {
+        break missingId;
+      }
+
+      return new FragmentSearchBinding((CardView) rootView, content, itemNumber, logo, website);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

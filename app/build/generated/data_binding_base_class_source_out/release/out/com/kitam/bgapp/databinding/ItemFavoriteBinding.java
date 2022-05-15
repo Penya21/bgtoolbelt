@@ -20,15 +20,23 @@ public final class ItemFavoriteBinding implements ViewBinding {
   private final CardView rootView;
 
   @NonNull
+  public final ImageView ivFav;
+
+  @NonNull
   public final ImageView ivImage;
+
+  @NonNull
+  public final ImageView ivShare;
 
   @NonNull
   public final TextView tvTitle;
 
-  private ItemFavoriteBinding(@NonNull CardView rootView, @NonNull ImageView ivImage,
-      @NonNull TextView tvTitle) {
+  private ItemFavoriteBinding(@NonNull CardView rootView, @NonNull ImageView ivFav,
+      @NonNull ImageView ivImage, @NonNull ImageView ivShare, @NonNull TextView tvTitle) {
     this.rootView = rootView;
+    this.ivFav = ivFav;
     this.ivImage = ivImage;
+    this.ivShare = ivShare;
     this.tvTitle = tvTitle;
   }
 
@@ -59,9 +67,21 @@ public final class ItemFavoriteBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.ivFav;
+      ImageView ivFav = rootView.findViewById(id);
+      if (ivFav == null) {
+        break missingId;
+      }
+
       id = R.id.ivImage;
       ImageView ivImage = rootView.findViewById(id);
       if (ivImage == null) {
+        break missingId;
+      }
+
+      id = R.id.ivShare;
+      ImageView ivShare = rootView.findViewById(id);
+      if (ivShare == null) {
         break missingId;
       }
 
@@ -71,7 +91,7 @@ public final class ItemFavoriteBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ItemFavoriteBinding((CardView) rootView, ivImage, tvTitle);
+      return new ItemFavoriteBinding((CardView) rootView, ivFav, ivImage, ivShare, tvTitle);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

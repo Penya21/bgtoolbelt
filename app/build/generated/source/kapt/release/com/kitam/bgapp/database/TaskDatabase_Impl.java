@@ -1,10 +1,13 @@
 package com.kitam.bgapp.database;
 
+import androidx.annotation.NonNull;
 import androidx.room.DatabaseConfiguration;
 import androidx.room.InvalidationTracker;
 import androidx.room.RoomOpenHelper;
 import androidx.room.RoomOpenHelper.Delegate;
 import androidx.room.RoomOpenHelper.ValidationResult;
+import androidx.room.migration.AutoMigrationSpec;
+import androidx.room.migration.Migration;
 import androidx.room.util.DBUtil;
 import androidx.room.util.TableInfo;
 import androidx.room.util.TableInfo.Column;
@@ -14,11 +17,15 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 import androidx.sqlite.db.SupportSQLiteOpenHelper;
 import androidx.sqlite.db.SupportSQLiteOpenHelper.Callback;
 import androidx.sqlite.db.SupportSQLiteOpenHelper.Configuration;
+import java.lang.Class;
 import java.lang.Override;
 import java.lang.String;
 import java.lang.SuppressWarnings;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 @SuppressWarnings({"unchecked", "deprecation"})
@@ -27,14 +34,14 @@ public final class TaskDatabase_Impl extends TaskDatabase {
 
   @Override
   protected SupportSQLiteOpenHelper createOpenHelper(DatabaseConfiguration configuration) {
-    final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(configuration, new RoomOpenHelper.Delegate(8) {
+    final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(configuration, new RoomOpenHelper.Delegate(13) {
       @Override
       public void createAllTables(SupportSQLiteDatabase _db) {
-        _db.execSQL("CREATE TABLE IF NOT EXISTS `user_entity` (`email` TEXT NOT NULL, `name` TEXT, `phone` TEXT, `hotList` TEXT, `upcomingList` TEXT, `favList` TEXT, `topList` TEXT, PRIMARY KEY(`email`))");
-        _db.execSQL("CREATE TABLE IF NOT EXISTS `boardgame_entity` (`id` TEXT NOT NULL, `type` TEXT, `imageurl` TEXT, `name` TEXT, `yearpublished` TEXT, `description` TEXT, `rank` TEXT, PRIMARY KEY(`id`))");
+        _db.execSQL("CREATE TABLE IF NOT EXISTS `user_entity` (`email` TEXT NOT NULL, `name` TEXT, `phone` TEXT, `hotList` TEXT, `upcomingList` TEXT, `favList` TEXT, `topList` TEXT, `sponsoredList` TEXT, `lastUpdate` INTEGER, PRIMARY KEY(`email`))");
+        _db.execSQL("CREATE TABLE IF NOT EXISTS `boardgame_entity` (`id` TEXT NOT NULL, `type` TEXT, `imageurl` TEXT, `name` TEXT, `yearpublished` TEXT, `description` TEXT, `rank` TEXT, `href` TEXT, PRIMARY KEY(`id`))");
         _db.execSQL("CREATE TABLE IF NOT EXISTS `UserBoardGameCrossRef` (`email` TEXT NOT NULL, `id` TEXT NOT NULL, PRIMARY KEY(`email`, `id`))");
         _db.execSQL("CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)");
-        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '51e155c00453bcf09bfddcd47d097282')");
+        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '3546e2b24f44adf4e5fddfd6fbabd313')");
       }
 
       @Override
@@ -80,7 +87,7 @@ public final class TaskDatabase_Impl extends TaskDatabase {
 
       @Override
       protected RoomOpenHelper.ValidationResult onValidateSchema(SupportSQLiteDatabase _db) {
-        final HashMap<String, TableInfo.Column> _columnsUserEntity = new HashMap<String, TableInfo.Column>(7);
+        final HashMap<String, TableInfo.Column> _columnsUserEntity = new HashMap<String, TableInfo.Column>(9);
         _columnsUserEntity.put("email", new TableInfo.Column("email", "TEXT", true, 1, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsUserEntity.put("name", new TableInfo.Column("name", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsUserEntity.put("phone", new TableInfo.Column("phone", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
@@ -88,6 +95,8 @@ public final class TaskDatabase_Impl extends TaskDatabase {
         _columnsUserEntity.put("upcomingList", new TableInfo.Column("upcomingList", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsUserEntity.put("favList", new TableInfo.Column("favList", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsUserEntity.put("topList", new TableInfo.Column("topList", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsUserEntity.put("sponsoredList", new TableInfo.Column("sponsoredList", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsUserEntity.put("lastUpdate", new TableInfo.Column("lastUpdate", "INTEGER", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
         final HashSet<TableInfo.ForeignKey> _foreignKeysUserEntity = new HashSet<TableInfo.ForeignKey>(0);
         final HashSet<TableInfo.Index> _indicesUserEntity = new HashSet<TableInfo.Index>(0);
         final TableInfo _infoUserEntity = new TableInfo("user_entity", _columnsUserEntity, _foreignKeysUserEntity, _indicesUserEntity);
@@ -97,7 +106,7 @@ public final class TaskDatabase_Impl extends TaskDatabase {
                   + " Expected:\n" + _infoUserEntity + "\n"
                   + " Found:\n" + _existingUserEntity);
         }
-        final HashMap<String, TableInfo.Column> _columnsBoardgameEntity = new HashMap<String, TableInfo.Column>(7);
+        final HashMap<String, TableInfo.Column> _columnsBoardgameEntity = new HashMap<String, TableInfo.Column>(8);
         _columnsBoardgameEntity.put("id", new TableInfo.Column("id", "TEXT", true, 1, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsBoardgameEntity.put("type", new TableInfo.Column("type", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsBoardgameEntity.put("imageurl", new TableInfo.Column("imageurl", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
@@ -105,6 +114,7 @@ public final class TaskDatabase_Impl extends TaskDatabase {
         _columnsBoardgameEntity.put("yearpublished", new TableInfo.Column("yearpublished", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsBoardgameEntity.put("description", new TableInfo.Column("description", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsBoardgameEntity.put("rank", new TableInfo.Column("rank", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsBoardgameEntity.put("href", new TableInfo.Column("href", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
         final HashSet<TableInfo.ForeignKey> _foreignKeysBoardgameEntity = new HashSet<TableInfo.ForeignKey>(0);
         final HashSet<TableInfo.Index> _indicesBoardgameEntity = new HashSet<TableInfo.Index>(0);
         final TableInfo _infoBoardgameEntity = new TableInfo("boardgame_entity", _columnsBoardgameEntity, _foreignKeysBoardgameEntity, _indicesBoardgameEntity);
@@ -128,7 +138,7 @@ public final class TaskDatabase_Impl extends TaskDatabase {
         }
         return new RoomOpenHelper.ValidationResult(true, null);
       }
-    }, "51e155c00453bcf09bfddcd47d097282", "001652944dca46096ce4498cfe3232e0");
+    }, "3546e2b24f44adf4e5fddfd6fbabd313", "36d3f488594b2422c4c6f7cd7e17cf27");
     final SupportSQLiteOpenHelper.Configuration _sqliteConfig = SupportSQLiteOpenHelper.Configuration.builder(configuration.context)
         .name(configuration.name)
         .callback(_openCallback)
@@ -161,6 +171,25 @@ public final class TaskDatabase_Impl extends TaskDatabase {
         _db.execSQL("VACUUM");
       }
     }
+  }
+
+  @Override
+  protected Map<Class<?>, List<Class<?>>> getRequiredTypeConverters() {
+    final HashMap<Class<?>, List<Class<?>>> _typeConvertersMap = new HashMap<Class<?>, List<Class<?>>>();
+    _typeConvertersMap.put(TaskDao.class, TaskDao_Impl.getRequiredConverters());
+    return _typeConvertersMap;
+  }
+
+  @Override
+  public Set<Class<? extends AutoMigrationSpec>> getRequiredAutoMigrationSpecs() {
+    final HashSet<Class<? extends AutoMigrationSpec>> _autoMigrationSpecsSet = new HashSet<Class<? extends AutoMigrationSpec>>();
+    return _autoMigrationSpecsSet;
+  }
+
+  @Override
+  public List<Migration> getAutoMigrations(
+      @NonNull Map<Class<? extends AutoMigrationSpec>, AutoMigrationSpec> autoMigrationSpecsMap) {
+    return Arrays.asList(new TaskDatabase_AutoMigration_12_13_Impl());
   }
 
   @Override

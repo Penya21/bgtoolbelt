@@ -23,15 +23,20 @@ public final class ProfileFragmentBinding implements ViewBinding {
   public final AppCompatButton buttonLogout;
 
   @NonNull
+  public final AppCompatButton buttonRateApp;
+
+  @NonNull
   public final TextView email;
 
   @NonNull
   public final TextView username;
 
   private ProfileFragmentBinding(@NonNull ConstraintLayout rootView,
-      @NonNull AppCompatButton buttonLogout, @NonNull TextView email, @NonNull TextView username) {
+      @NonNull AppCompatButton buttonLogout, @NonNull AppCompatButton buttonRateApp,
+      @NonNull TextView email, @NonNull TextView username) {
     this.rootView = rootView;
     this.buttonLogout = buttonLogout;
+    this.buttonRateApp = buttonRateApp;
     this.email = email;
     this.username = username;
   }
@@ -69,6 +74,12 @@ public final class ProfileFragmentBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.button_rate_app;
+      AppCompatButton buttonRateApp = rootView.findViewById(id);
+      if (buttonRateApp == null) {
+        break missingId;
+      }
+
       id = R.id.email;
       TextView email = rootView.findViewById(id);
       if (email == null) {
@@ -81,7 +92,8 @@ public final class ProfileFragmentBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ProfileFragmentBinding((ConstraintLayout) rootView, buttonLogout, email, username);
+      return new ProfileFragmentBinding((ConstraintLayout) rootView, buttonLogout, buttonRateApp,
+          email, username);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

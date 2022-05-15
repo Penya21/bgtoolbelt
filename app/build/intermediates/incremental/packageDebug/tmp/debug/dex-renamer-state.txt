@@ -1,8 +1,10 @@
-#Sun Mar 06 20:43:57 CST 2022
+#Sat May 14 11:47:13 CDT 2022
+path.4=classes2.dex
 path.3=classes3.dex
 path.2=classes2.dex
 path.1=classes.dex
 path.0=classes.dex
+base.4=/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/dex/debug/mergeProjectDexDebug/classes2.dex
 base.3=/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/dex/debug/mergeExtDexDebug/classes3.dex
 base.2=/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/dex/debug/mergeExtDexDebug/classes2.dex
 base.1=/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/dex/debug/mergeProjectDexDebug/classes.dex
@@ -11,3 +13,4 @@ renamed.3=classes4.dex
 renamed.2=classes3.dex
 renamed.1=classes2.dex
 renamed.0=classes.dex
+renamed.4=classes5.dex

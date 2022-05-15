@@ -4,7 +4,7 @@
             "outputFile": "/Users/DesarrolloLightSoft/Documents/GitHub/bgtoolbelt/app/build/intermediates/incremental/mergeReleaseResources/merged.dir/values-w480dp-port-v13/values-w480dp-port-v13.xml",
             "map": [
                 {
-                    "source": "/Users/DesarrolloLightSoft/.gradle/caches/transforms-2/files-2.1/44d7220ee44d41c27f13beeacb100430/material-1.4.0/res/values-w480dp-port-v13/values-w480dp-port-v13.xml",
+                    "source": "/Users/DesarrolloLightSoft/.gradle/caches/transforms-2/files-2.1/59525e9a59c41bd742f2452509da6e60/material-1.5.0/res/values-w480dp-port-v13/values-w480dp-port-v13.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",

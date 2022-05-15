@@ -4,8 +4,10 @@ package com.kitam.bgapp.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.SearchView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
@@ -21,10 +23,19 @@ public final class FragmentNotificationsBinding implements ViewBinding {
   @NonNull
   public final RecyclerView rvHotList;
 
+  @NonNull
+  public final SearchView searchBar;
+
+  @NonNull
+  public final TextView tvEmptyMessage;
+
   private FragmentNotificationsBinding(@NonNull ConstraintLayout rootView,
-      @NonNull RecyclerView rvHotList) {
+      @NonNull RecyclerView rvHotList, @NonNull SearchView searchBar,
+      @NonNull TextView tvEmptyMessage) {
     this.rootView = rootView;
     this.rvHotList = rvHotList;
+    this.searchBar = searchBar;
+    this.tvEmptyMessage = tvEmptyMessage;
   }
 
   @Override
@@ -60,7 +71,20 @@ public final class FragmentNotificationsBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentNotificationsBinding((ConstraintLayout) rootView, rvHotList);
+      id = R.id.search_bar;
+      SearchView searchBar = rootView.findViewById(id);
+      if (searchBar == null) {
+        break missingId;
+      }
+
+      id = R.id.tvEmptyMessage;
+      TextView tvEmptyMessage = rootView.findViewById(id);
+      if (tvEmptyMessage == null) {
+        break missingId;
+      }
+
+      return new FragmentNotificationsBinding((ConstraintLayout) rootView, rvHotList, searchBar,
+          tvEmptyMessage);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

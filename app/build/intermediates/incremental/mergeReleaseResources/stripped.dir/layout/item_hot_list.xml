@@ -9,10 +9,11 @@
 
     <ImageView
         android:id="@+id/ivFav"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:background="@drawable/circle_gray_color"
-        android:src="@drawable/ic_fav_off"
+        android:src="@drawable/outline_favorite_border_24"
+        app:tint="@color/white"
         android:padding="8dp"
         android:layout_margin="5dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -82,7 +83,7 @@
         android:visibility="visible"
         android:textColor="@color/white"
         android:maxLines="1"
-        android:background="@color/design_default_color_secondary"
+        android:background="@color/red_700"
         android:layout_alignParentTop="true"
         android:layout_toRightOf="@+id/ivImage"
         android:layout_toEndOf="@+id/ivImage"

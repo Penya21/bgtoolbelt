@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.kitam.bgapp.ui.home.HomeFragment"
+        android:name="com.kitam.bgapp.ui.home.BoardGameDetailFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_boardgame_detail" />
 
     <fragment
         android:id="@+id/navigation_hot"
@@ -25,7 +25,7 @@
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="com.kitam.bgapp.ui.notifications.NotificationsFragment"
+        android:name="com.kitam.bgapp.ui.favorites.FavoritesFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
 
@@ -37,8 +37,14 @@
 
     <fragment
         android:id="@+id/navigation_search"
-        android:name="com.kitam.bgapp.ui.search.SearchFragment"
+        android:name="com.kitam.bgapp.ui.search.SearchProductFragment"
         android:label="@string/title_search"
+        tools:layout="@layout/fragment_product" />
+
+    <fragment
+        android:id="@+id/navigation_stores"
+        android:name="com.kitam.bgapp.ui.stores.StoresDirectoryFragment"
+        android:label="@string/title_stores"
         tools:layout="@layout/fragment_search" />
 
 </navigation>
